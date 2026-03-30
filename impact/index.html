@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Public Comments, Real Results | Public Powered Policy</title>
+  <meta name="description" content="Real examples of public comments changing government rules, from disability rights to food safety to internet access.">
+
+  <script>
+    (function(){
+      var m = localStorage.getItem('ppp-mode') || 'system';
+      if (m === 'dark')  document.documentElement.classList.add('dark');
+      if (m === 'light') document.documentElement.classList.add('light');
+    })();
+  </script>
+
+  <link rel="stylesheet" href="../css/main.css">
+  <script src="../js/app.js" defer></script>
+
+  <style>
+    /* ── IMPACT-PAGE SPECIFIC STYLES ─────────────────────────── */
+
+    .impact-lead {
+      font-size: var(--text-lg);
+      color: var(--text);
+      max-width: 62ch;
+      margin-bottom: var(--sp-xl);
+      line-height: var(--leading);
+    }
+
+    /* Individual example cards */
+    .impact-example {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-left: 4px solid var(--red);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-lg);
+      margin-bottom: var(--sp-lg);
+      box-shadow: var(--shadow);
+      scroll-margin-top: 80px;
+    }
+
+    .impact-meta {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-sm);
+      flex-wrap: wrap;
+      margin-bottom: var(--sp-sm);
+    }
+
+    .impact-agency {
+      font-size: var(--text-sm);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+    }
+
+    .impact-year {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 0.1rem 0.65rem;
+    }
+
+    .impact-example h3 {
+      font-size: var(--text-xl);
+      margin-top: var(--sp-sm);
+      margin-bottom: var(--sp-sm);
+    }
+
+    .impact-example p {
+      max-width: 62ch;
+    }
+
+    /* "What changed" highlight box */
+    .impact-result {
+      margin-top: var(--sp-md);
+      padding: 0.85rem 1rem;
+      background: var(--bg-subtle);
+      border-radius: var(--radius);
+      border-left: 3px solid #c49a3a;
+      font-size: var(--text-sm);
+      color: var(--text);
+      line-height: var(--leading);
+    }
+
+    .impact-result strong {
+      display: block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 0.3rem;
+    }
+
+    /* Intro stat row */
+    .impact-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: var(--sp-md);
+      margin: var(--sp-lg) 0 var(--sp-xl);
+    }
+
+    .impact-stat {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-md) var(--sp-lg);
+      text-align: center;
+    }
+
+    .impact-stat .stat-num {
+      display: block;
+      font-size: var(--text-2xl);
+      font-weight: 800;
+      color: var(--red);
+      line-height: 1.1;
+      margin-bottom: 0.3rem;
+    }
+
+    .impact-stat .stat-label {
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ── HEADER ─────────────────────────────────────────── -->
+  <header role="banner">
+    <div class="nav-inner">
+      <a class="site-logo" href="../" aria-label="Public Powered Policy — home">
+        Public Powered Policy
+      </a>
+      <nav class="nav-right" aria-label="Main navigation">
+        <ul class="nav-links" role="list">
+          <li><a href="../toolkit/">Toolkit</a></li>
+          <li><a href="../process/">How It Works</a></li>
+          <li><a href="../glossary/">Glossary</a></li>
+          <li><a href="../about/">About</a></li>
+          <li><a href="../contact/">Contact</a></li>
+        </ul>
+        <div class="theme-picker">
+          <button id="theme-toggle" class="theme-btn"
+                  aria-haspopup="true" aria-expanded="false"
+                  aria-controls="theme-menu" aria-label="Change color theme">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 32 32" aria-hidden="true">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                    d="M16 5V2m0 21a7 7 0 1 0 0-14 7 7 0 0 0 0 14ZM8 8 6 6m2 18-2 2M24 8l2-2m-2 18 2 2M5 16H2m14 11v3m11-14h3"/>
+            </svg>
+            <span id="theme-current">system</span>
+          </button>
+          <ul id="theme-menu" class="theme-menu" role="menu" aria-label="Theme options">
+            <li role="none"><button role="menuitemradio" data-theme-mode="system"  aria-checked="true">System default</button></li>
+            <li role="none"><button role="menuitemradio" data-theme-mode="light"   aria-checked="false">Light</button></li>
+            <li role="none"><button role="menuitemradio" data-theme-mode="dark"    aria-checked="false">Dark</button></li>
+          </ul>
+        </div>
+        <button id="mobile-menu-btn" class="btn btn-outline btn-sm menu-btn"
+                aria-expanded="false" aria-controls="mobile-nav">Menu</button>
+      </nav>
+    </div>
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+      <ul role="list">
+        <li><a href="../toolkit/">Toolkit</a></li>
+        <li><a href="../process/">How It Works</a></li>
+        <li><a href="../glossary/">Glossary</a></li>
+        <li><a href="../about/">About</a></li>
+        <li><a href="../contact/">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ── MAIN ───────────────────────────────────────────── -->
+  <main id="main-content" tabindex="-1">
+
+    <div class="page-hero">
+      <div class="page-inner">
+        <div class="headline-brush-wrap">
+          <h1>Public Comments, Real Results</h1>
+          <div class="brush-divider brush-hero hero-brush" aria-hidden="true">
+            <img src="../img/brush.svg" alt="" width="1076" height="64">
+          </div>
+        </div>
+        <p class="lead">Comments aren't just acknowledged. They change the outcome. Here's the evidence.</p>
+      </div>
+    </div>
+
+    <div class="docs-layout" style="padding: 0 var(--sp-lg) var(--sp-xxl);">
+
+      <!-- ── Sidebar TOC ─────────────────────────────────── -->
+      <nav class="docs-sidebar" aria-label="Page sections">
+        <p class="toc-label">On this page</p>
+        <ul class="toc-list" role="list">
+          <li><a href="#how-it-works">How comments shape rules</a></li>
+          <li><a href="#ada-web">ADA web access (2024)</a></li>
+          <li><a href="#doe-504">DOE building access (2025)</a></li>
+          <li><a href="#fcc-net">FCC net neutrality (2015)</a></li>
+          <li><a href="#fda-farms">FDA food safety (2015)</a></li>
+          <li><a href="#your-turn">Your turn</a></li>
+        </ul>
+      </nav>
+
+      <!-- ── Article ────────────────────────────────────── -->
+      <article>
+
+        <section id="how-it-works" aria-labelledby="how-it-works-heading" style="scroll-margin-top: 80px; margin-bottom: var(--sp-xl);">
+          <h2 id="how-it-works-heading" class="mt-0">How comments shape rules</h2>
+
+          <p>
+            Government agencies are legally required to consider all public comments they receive
+            and explain in the final rule how they responded to significant concerns. That
+            requirement has teeth, and it produces real results.
+          </p>
+
+          <p>
+            The examples below cover different agencies, different issues, and different
+            kinds of impact: an exception removed, a proposal paused, a stronger
+            standard adopted, a major rule revised to protect small communities. In each
+            case, the outcome was different because people showed up.
+          </p>
+
+        </section>
+
+        <!-- Example 1: ADA Title II -->
+        <section id="ada-web" aria-labelledby="ada-web-heading" style="scroll-margin-top: 80px;">
+          <div class="impact-example">
+            <div class="impact-meta">
+              <span class="impact-agency">Department of Justice</span>
+              <span class="impact-year">2024</span>
+            </div>
+            <h3 id="ada-web-heading">An exception for educational institutions disappears</h3>
+            <p>
+              In 2023, the Department of Justice proposed new rules requiring state and local
+              government websites and mobile apps to meet digital accessibility standards,
+              a significant step for people with disabilities who rely on those sites to vote,
+              access government services, and participate in public life.
+            </p>
+            <p>
+              The proposed rule included an exception: password-protected course content
+              (the readings, videos, and assignments that students log in to access every day)
+              would have been treated differently for educational institutions.
+            </p>
+            <p>
+              Disability rights advocates and people with disabilities pushed back in public
+              comments, arguing that carving out educational content would leave students
+              without equal access to the very materials they need to participate in school.
+              The exemption, they argued, undermined the rule's core purpose.
+            </p>
+            <p>
+              When the Department of Justice published the final rule in April 2024, the
+              exception was gone. All content that students need to participate in a public
+              school or university's programs, including material posted by teachers on
+              course portals, must now meet the same accessibility standard.
+            </p>
+            <div class="impact-result">
+              <strong>What changed</strong>
+              An exception for password-protected educational course content was proposed;
+              the final rule removed it entirely. Public schools, colleges, and universities
+              must make their course materials accessible to all students.
+            </div>
+          </div>
+        </section>
+
+        <!-- Example 2: DOE Section 504 -->
+        <section id="doe-504" aria-labelledby="doe-504-heading" style="scroll-margin-top: 80px;">
+          <div class="impact-example">
+            <div class="impact-meta">
+              <span class="impact-agency">Department of Energy</span>
+              <span class="impact-year">2025</span>
+            </div>
+            <h3 id="doe-504-heading">20,000 comments pause a proposed rule change</h3>
+            <p>
+              In May 2025, the Department of Energy proposed eliminating long-standing
+              government requirements that ensure buildings constructed with government funding
+              are accessible to people with disabilities. The proposal would have removed
+              the requirement that recipients of government energy assistance design and build
+              facilities that people with disabilities can actually use.
+            </p>
+            <p>
+              The agency used an expedited procedure called a "direct final rule," a
+              process reserved for changes not expected to generate significant opposition,
+              which allows for a shorter comment window than standard rulemaking.
+            </p>
+            <p>
+              More than 20,000 comments arrived. Disability rights organizations, individuals,
+              civil rights coalitions, and state attorneys general documented in detail how
+              the proposal would affect people with disabilities. The National Council on
+              Disability formally advised the agency against proceeding.
+            </p>
+            <p>
+              The Department of Energy postponed the rule. The 60-day delay was directly
+              attributed to the volume and substance of public comments. The rule's outcome
+              remained unresolved, which means public participation continued to matter
+              every step of the way.
+            </p>
+            <div class="impact-result">
+              <strong>What changed</strong>
+              A proposal to remove building accessibility protections was paused after
+              more than 20,000 public comments. Public participation can protect
+              existing rights, not just shape new ones.
+            </div>
+          </div>
+        </section>
+
+        <!-- Example 3: FCC Net Neutrality -->
+        <section id="fcc-net" aria-labelledby="fcc-net-heading" style="scroll-margin-top: 80px;">
+          <div class="impact-example">
+            <div class="impact-meta">
+              <span class="impact-agency">Federal Communications Commission</span>
+              <span class="impact-year">2015</span>
+            </div>
+            <h3 id="fcc-net-heading">4 million comments and a stronger internet rule</h3>
+            <p>
+              In 2014, the Federal Communications Commission proposed new rules for how
+              internet service providers could manage network traffic. Critics worried the
+              proposal would allow internet companies to create tiered service, with faster
+              connections for websites that paid more and slower access for those that couldn't.
+            </p>
+            <p>
+              What happened next was unlike anything the FCC had seen before. Nearly
+              4 million people submitted public comments, the most the agency had ever
+              received. The comments came from individuals, small businesses, nonprofits,
+              libraries, schools, and civil liberties organizations, and the overwhelming
+              majority called for stronger protections for an open internet.
+            </p>
+            <p>
+              The FCC responded with an approach more protective than its original proposal.
+              In February 2015, it reclassified broadband internet as a utility under
+              Title II of the Telecommunications Act, a stronger legal foundation than
+              the agency had initially considered, and adopted rules prohibiting internet
+              providers from blocking or throttling content or creating paid fast lanes.
+            </p>
+            <div class="impact-result">
+              <strong>What changed</strong>
+              After nearly 4 million public comments, the most in FCC history at that
+              time, the agency adopted a stronger legal framework for net neutrality
+              than it had originally proposed. The scale of public response directly
+              influenced the outcome.
+            </div>
+          </div>
+        </section>
+
+        <!-- Example 4: FDA FSMA -->
+        <section id="fda-farms" aria-labelledby="fda-farms-heading" style="scroll-margin-top: 80px;">
+          <div class="impact-example">
+            <div class="impact-meta">
+              <span class="impact-agency">Food and Drug Administration</span>
+              <span class="impact-year">2015</span>
+            </div>
+            <h3 id="fda-farms-heading">Small farmers speak up and the FDA listens twice</h3>
+            <p>
+              In 2013, the Food and Drug Administration proposed the first-ever government
+              produce safety standards under the Food Safety Modernization Act. The goal
+              was to reduce contamination of fresh fruits and vegetables, but the rules
+              were designed for large commercial operations, and small farmers quickly
+              saw a problem.
+            </p>
+            <p>
+              Thousands of comments poured in from family farms, rural food producers,
+              local food advocates, and state agricultural agencies. Their concern was
+              specific and practical: applying the same requirements equally to a small
+              family farm and a large commercial operation would be economically impossible
+              for smaller growers. Many feared the rule would drive small farms out of
+              business entirely.
+            </p>
+            <p>
+              The FDA's response was significant. Rather than simply proceeding to a final
+              rule, the agency published a supplemental proposed rule in 2014, a second
+              round of public notice and comment, specifically to address the concerns that
+              had been raised. That second round gave affected communities another
+              opportunity to weigh in.
+            </p>
+            <p>
+              The 2015 final rule incorporated meaningful protections for small farms,
+              including different standards based on farm size and annual sales, and
+              extended compliance timelines that gave smaller operations more time to
+              meet the new requirements.
+            </p>
+            <div class="impact-result">
+              <strong>What changed</strong>
+              Comments from small farmers prompted the FDA to publish a supplemental
+              proposed rule in 2014, a second full round of public input, and the
+              final rule included tiered standards and exemptions for small farms that
+              were not in the original proposal.
+            </div>
+          </div>
+        </section>
+
+        <!-- Your turn CTA -->
+        <section id="your-turn" aria-labelledby="your-turn-heading" style="scroll-margin-top: 80px; margin-top: var(--sp-xl);">
+          <h2 id="your-turn-heading">Your turn</h2>
+          <p>
+            You don't need a law degree or special credentials to file a public comment
+            that counts. The comments that shaped these outcomes came from all kinds of
+            people: organizations with legal staff, individual advocates, and people with
+            no formal policy background at all. What they shared was firsthand knowledge
+            of how a rule would affect their lives. That knowledge belongs to you too.
+          </p>
+          <p>
+            Government agencies are writing rules right now. The comment periods are open.
+            Your perspective, as a person affected by these policies, is exactly the
+            kind of input the process is designed for.
+          </p>
+
+          <div style="margin-top: var(--sp-xl); padding: var(--sp-xl) var(--sp-lg); background: var(--navy); border-radius: var(--radius-lg); text-align: center;">
+            <p style="font-size: var(--text-xl); font-weight: 800; max-width: none; margin-bottom: 0.5rem; color: #fff;">
+              Ready to add your voice?
+            </p>
+            <p style="color: rgba(255,255,255,0.75); max-width: 52ch; margin: 0 auto var(--sp-lg); font-size: var(--text-base);">
+              Our step-by-step Toolkit shows you how to find a rule, write your comment,
+              and submit it, in plain language, no expertise required.
+            </p>
+            <a href="../toolkit/" class="btn btn-primary btn-lg">
+              Go to the Toolkit <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </section>
+
+      </article>
+    </div>
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────────── -->
+  <footer role="contentinfo">
+    <p>&copy; 2025 Public Powered Policy</p>
+  </footer>
+
+</body>
+</html>

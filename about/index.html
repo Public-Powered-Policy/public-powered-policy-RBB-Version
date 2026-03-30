@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>About | Public Powered Policy</title>
+  <meta name="description" content="We inform, equip, and empower the public to influence the policies that shape their lives. Founded by former DOJ Civil Rights leaders.">
+
+  <script>
+    (function(){
+      var m = localStorage.getItem('ppp-mode') || 'system';
+      if (m === 'dark')  document.documentElement.classList.add('dark');
+      if (m === 'light') document.documentElement.classList.add('light');
+    })();
+  </script>
+
+  <link rel="stylesheet" href="../css/main.css">
+  <script src="../js/app.js" defer></script>
+
+  <style>
+    /* About-page specific styles */
+    .about-article h2 { margin-top: var(--sp-xl); }
+    .about-article h2:first-child { margin-top: 0; }
+    .about-article section { padding-bottom: var(--sp-md); }
+
+    .mission-statement {
+      font-size: var(--text-xl);
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--text);
+      padding: var(--sp-lg) var(--sp-xl);
+      border-left: 5px solid var(--red);
+      background: var(--bg-subtle);
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+      margin: var(--sp-lg) 0;
+    }
+
+    .bio-section {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: var(--sp-xl);
+      margin: var(--sp-xl) 0;
+      padding: var(--sp-lg);
+      background: var(--bg-subtle);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+    }
+
+    @media (max-width: 600px) {
+      .bio-section { grid-template-columns: 1fr; }
+      .bio-section img { width: 120px; height: 120px; }
+    }
+
+    .bio-photo {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+
+    .bio-info {}
+    .bio-info .bio-name { font-size: var(--text-xl); font-weight: 800; margin-bottom: 0.2rem; }
+    .bio-info .bio-role { font-size: var(--text-sm); font-weight: 600; color: var(--text-muted); margin-bottom: var(--sp-md); }
+    .bio-info p { font-size: var(--text-base); margin-bottom: var(--sp-sm); }
+    .bio-info p:last-child { margin-bottom: 0; }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ── HEADER ─────────────────────────────────────────── -->
+  <header role="banner">
+    <div class="nav-inner">
+      <a class="site-logo" href="../" aria-label="Public Powered Policy — home">
+        Public Powered Policy
+      </a>
+      <nav class="nav-right" aria-label="Main navigation">
+        <ul class="nav-links" role="list">
+          <li><a href="../toolkit/">Toolkit</a></li>
+          <li><a href="../process/">How It Works</a></li>
+          <li><a href="../glossary/">Glossary</a></li>
+          <li><a href="../about/" aria-current="page">About</a></li>
+          <li><a href="../contact/">Contact</a></li>
+        </ul>
+        <div class="theme-picker">
+          <button id="theme-toggle" class="theme-btn"
+                  aria-haspopup="true" aria-expanded="false"
+                  aria-controls="theme-menu" aria-label="Change color theme">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 32 32" aria-hidden="true">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                    d="M16 5V2m0 21a7 7 0 1 0 0-14 7 7 0 0 0 0 14ZM8 8 6 6m2 18-2 2M24 8l2-2m-2 18 2 2M5 16H2m14 11v3m11-14h3"/>
+            </svg>
+            <span id="theme-current">system</span>
+          </button>
+          <ul id="theme-menu" class="theme-menu" role="menu" aria-label="Theme options">
+            <li role="none"><button role="menuitemradio" data-theme-mode="system"  aria-checked="true">System default</button></li>
+            <li role="none"><button role="menuitemradio" data-theme-mode="light"   aria-checked="false">Light</button></li>
+            <li role="none"><button role="menuitemradio" data-theme-mode="dark"    aria-checked="false">Dark</button></li>
+          </ul>
+        </div>
+        <button id="mobile-menu-btn" class="btn btn-outline btn-sm menu-btn"
+                aria-expanded="false" aria-controls="mobile-nav">Menu</button>
+      </nav>
+    </div>
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+      <ul role="list">
+        <li><a href="../toolkit/">Toolkit</a></li>
+        <li><a href="../process/">How It Works</a></li>
+        <li><a href="../glossary/">Glossary</a></li>
+        <li><a href="../about/">About</a></li>
+        <li><a href="../contact/">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ── MAIN ───────────────────────────────────────────── -->
+  <main id="main-content" tabindex="-1">
+
+    <div class="page-hero">
+      <div class="page-inner">
+        <h1>About</h1>
+      </div>
+    </div>
+
+    <div class="page-inner">
+
+      <!-- Two-column layout for sidebar TOC + article -->
+      <div class="docs-layout" style="padding: 0;">
+
+        <!-- Sidebar TOC -->
+        <nav class="docs-sidebar" aria-label="Page sections">
+          <p class="toc-label">On this page</p>
+          <ul class="toc-list" role="list">
+            <li><a href="#our-mission">Our mission</a></li>
+            <li><a href="#who-we-are">Who we are</a></li>
+            <li><a href="#why-now">Why now?</a></li>
+            <li><a href="#what-we-do">What we do</a></li>
+            <li><a href="#team">Our team</a></li>
+            <li><a href="#contact-us">Contact us</a></li>
+          </ul>
+        </nav>
+
+        <!-- Article -->
+        <article class="about-article">
+
+          <section aria-labelledby="our-mission">
+            <h2 id="our-mission">Our mission</h2>
+
+            <p class="mission-statement">
+              We inform, equip, and empower the public to influence the policies that shape their lives.
+            </p>
+
+            <!-- Illustration divider -->
+            <div class="illustration-divider" aria-hidden="true">
+              <span class="line"></span>
+              <img src="../img/illustration.svg" alt="" width="80" height="104">
+              <span class="line"></span>
+            </div>
+          </section>
+
+          <section aria-labelledby="who-we-are">
+            <h2 id="who-we-are">Who we are</h2>
+            <p>
+              Public Powered Policy was founded by former leaders of the U.S. Department of Justice
+              Civil Rights Division.
+            </p>
+            <p>
+              We served together in the Disability Rights Section — the office responsible for enforcing
+              and strengthening the civil rights of people with disabilities nationwide.
+            </p>
+            <p>We didn't just study rulemaking (aka policymaking). We lived inside it.</p>
+            <p>At DOJ, we were responsible for developing major civil rights rules that affect millions of
+              people's daily lives, including:</p>
+            <ul>
+              <li>
+                A rule requiring state and local government websites to be accessible, so people with
+                disabilities can use websites to register to vote, apply to college, follow civic events,
+                and stay informed about what's happening in their children's schools.
+              </li>
+              <li>
+                A rule requiring medical diagnostic equipment to be accessible — covering exam tables,
+                weight scales, mammography machines, and more — ensuring that people with disabilities
+                can receive basic medical care, including being weighed at the doctor's office.
+              </li>
+            </ul>
+            <p>
+              We also transformed <a href="https://www.ada.gov/" target="_blank" rel="noopener">ADA.gov</a>
+              into a practical, plain-language resource so that people with disabilities, businesses, and
+              governments could understand their rights and responsibilities.
+            </p>
+            <p>
+              Through this work, we saw how much better government policies are when the public
+              is meaningfully involved — and how much is missed when they're not. We want to
+              help more people claim their seat at the table.
+            </p>
+          </section>
+
+          <section aria-labelledby="why-now">
+            <h2 id="why-now">Why now?</h2>
+            <p>When we left the government, we didn't leave our mission behind.</p>
+            <p>
+              Rulemaking is one of the most powerful — and least understood — ways that government
+              shapes everyday life. Most people don't know they have a legal right to weigh in, or
+              that their input can genuinely change outcomes.
+            </p>
+            <p>Public Powered Policy exists to change that.</p>
+          </section>
+
+          <section aria-labelledby="what-we-do">
+            <h2 id="what-we-do">What we do</h2>
+            <p>
+              We draw on our experience inside government to make policymaking accessible. We explain
+              how the process works, highlight rules that matter to you, and provide practical tools
+              so you can participate.
+            </p>
+            <p>
+              Your voice belongs in the policies that govern your life. And when the public shows up,
+              the system works better for everyone.
+            </p>
+          </section>
+
+          <section aria-labelledby="team-heading">
+            <h2 id="team">Our team</h2>
+
+            <!-- Rebecca B. Bond -->
+            <div class="bio-section" id="bio-rebecca">
+              <img src="https://publicpoweredpolicy.com/assets/images/sTLxRmpY0J-500.jpeg"
+                   alt="Headshot of Rebecca Bond"
+                   class="bio-photo"
+                   width="160" height="160"
+                   loading="lazy"
+                   decoding="async">
+              <div class="bio-info">
+                <p class="bio-name">Rebecca B. Bond</p>
+                <p class="bio-role">Executive Director</p>
+                <p>
+                  Rebecca B. Bond is a civil rights attorney who spent 25 years at the U.S. Department
+                  of Justice working to protect and expand the rights of people with disabilities and
+                  other marginalized communities.
+                </p>
+                <p>
+                  For twelve years, she served as Chief of the Disability Rights Section in the Civil
+                  Rights Division, where she led national enforcement of the Americans with Disabilities
+                  Act. In that role, she oversaw landmark ADA regulations, major investigations, and
+                  high-impact litigation that improved access to healthcare, education, voting, and
+                  government services for millions of people.
+                </p>
+                <p>Rebecca is a graduate of Harvard Law School and Yale University.</p>
+              </div>
+            </div>
+
+            <!-- Cameron Lynch -->
+            <div class="bio-section" id="bio-cameron">
+              <img src="https://publicpoweredpolicy.com/assets/images/lXrhQS6JhR-500.jpeg"
+                   alt="Headshot of Cameron Lynch"
+                   class="bio-photo"
+                   width="160" height="160"
+                   loading="lazy"
+                   decoding="async">
+              <div class="bio-info">
+                <p class="bio-name">Cameron Lynch</p>
+                <p class="bio-role">Public Policy Liaison</p>
+                <p>
+                  Cameron Lynch is a disability rights advocate who works to ensure equitable treatment
+                  of disabled people through policy advocacy and intersectional engagement.
+                </p>
+                <p>
+                  Cameron is currently a policy analyst with the Autistic Self Advocacy Network where
+                  she focuses on the education, civil rights, and accessible technology portfolios.
+                  Before this role, Cameron served in the U.S. Department of Justice Disability Rights
+                  Section as a paralegal, working on regulations under the Americans with Disabilities
+                  Act. She also created Chronic and Iconic, an online advocacy and support organization
+                  for disabled young people. Her advocacy work has been featured in USA Today, CNN,
+                  The Washington Post, The New York Times, and the BBC.
+                </p>
+                <p>
+                  Lynch graduated from the College of William and Mary, where she studied Sociology
+                  and Government, with a concentration on Social Problems, Policy, and Justice. She
+                  received the 2022 James Monroe Prize for Civic Leadership.
+                </p>
+              </div>
+            </div>
+
+            <!-- Kristin Stitcher -->
+            <div class="bio-section" id="bio-kristin">
+              <img src="https://publicpoweredpolicy.com/assets/images/7Utv50v8Kl-500.jpeg"
+                   alt="Headshot of Kristin Stitcher"
+                   class="bio-photo"
+                   width="160" height="160"
+                   loading="lazy"
+                   decoding="async">
+              <div class="bio-info">
+                <p class="bio-name">Kristin Stitcher</p>
+                <p class="bio-role">Director of Policy and Programs</p>
+                <p>
+                  Kristin worked for the Department of Justice, Civil Rights Division, Disability Rights
+                  Section for over eight years in several roles, including as a Deputy Chief. Kristin's
+                  work was aimed at protecting and advancing the rights of people with disabilities. She
+                  was also particularly focused on the intersection of law, technology, and accessibility.
+                </p>
+                <p>While at DOJ, Kristin led a team that was responsible for:</p>
+                <ul>
+                  <li>Developing regulations under the Americans with Disabilities Act (ADA)</li>
+                  <li>Creating related technical assistance to help people understand their legal rights and responsibilities</li>
+                  <li>Coordinating regulatory developments with other government agencies</li>
+                  <li>Delivering information to the public via ADA.gov</li>
+                </ul>
+                <p>Also, she has two dogs and likes playing volleyball.</p>
+              </div>
+            </div>
+
+          </section>
+
+          <section aria-labelledby="contact-us-heading">
+            <h2 id="contact-us">Contact us</h2>
+            <p>
+              If you have questions, are interested in learning more about public engagement in the
+              regulatory process, or just want to talk to us, please
+              <a href="../contact/">feel free to reach out</a>.
+            </p>
+          </section>
+
+        </article>
+      </div><!-- /docs-layout -->
+    </div><!-- /page-inner -->
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────────── -->
+  <footer role="contentinfo">
+    <p>&copy; 2025 Public Powered Policy</p>
+  </footer>
+
+</body>
+</html>

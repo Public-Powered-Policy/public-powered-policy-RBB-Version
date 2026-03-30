@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Glossary | Public Powered Policy</title>
+  <meta name="description" content="Plain-language definitions of common government rulemaking terms — no law degree needed.">
+
+  <script>
+    (function(){
+      var m = localStorage.getItem('ppp-mode') || 'system';
+      if (m === 'dark')  document.documentElement.classList.add('dark');
+      if (m === 'light') document.documentElement.classList.add('light');
+    })();
+  </script>
+
+  <link rel="stylesheet" href="../css/main.css">
+  <script src="../js/app.js" defer></script>
+
+  <style>
+    /* ── GLOSSARY-SPECIFIC STYLES ─────────────────────────── */
+
+    /* A–Z jump nav */
+    .az-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin: var(--sp-lg) 0 var(--sp-xl);
+      list-style: none;
+      padding: 0;
+    }
+
+    .az-nav a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      font-size: var(--text-sm);
+      font-weight: 700;
+      color: var(--link);
+      text-decoration: none;
+      background: var(--bg-subtle);
+      transition: background var(--transition), border-color var(--transition),
+                  color var(--transition);
+    }
+
+    .az-nav a:hover {
+      background: var(--navy);
+      color: #ffffff;
+      border-color: var(--navy);
+    }
+
+    .az-nav a.has-terms {
+      border-color: var(--red);
+      color: var(--red);
+    }
+    html.dark .az-nav a.has-terms,
+    @media (prefers-color-scheme: dark) {
+      .az-nav a.has-terms { color: #e85c7a; border-color: #e85c7a; }
+    }
+
+    .az-nav a.has-terms:hover {
+      background: var(--red);
+      color: #ffffff;
+      border-color: var(--red);
+    }
+
+    /* Letter section header */
+    .letter-section {
+      margin-top: var(--sp-xl);
+      scroll-margin-top: 80px; /* account for sticky header */
+    }
+
+    .letter-heading {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 50%;
+      background: var(--navy);
+      color: #ffffff;
+      font-size: var(--text-xl);
+      font-weight: 800;
+      margin-bottom: var(--sp-lg);
+      flex-shrink: 0;
+    }
+
+    /* Term list */
+    .glossary-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-md);
+    }
+
+    .glossary-entry {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-left: 4px solid var(--red);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-lg);
+      box-shadow: var(--shadow);
+      scroll-margin-top: 80px;
+    }
+
+    .term-name {
+      font-size: var(--text-lg);
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: var(--sp-sm);
+    }
+
+    .term-abbr {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-left: 0.5rem;
+    }
+
+    .term-def {
+      font-size: var(--text-base);
+      color: var(--text);
+      line-height: var(--leading);
+      max-width: 70ch;
+    }
+
+    .term-def p { margin-bottom: var(--sp-sm); }
+    .term-def p:last-child { margin-bottom: 0; }
+
+    .term-tip {
+      margin-top: var(--sp-sm);
+      padding: 0.6rem 0.9rem;
+      background: var(--bg-subtle);
+      border-radius: var(--radius);
+      border-left: 3px solid var(--blue-light);
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+    }
+
+    /* Attribution box */
+    .attribution {
+      margin-top: var(--sp-xxl);
+      padding: var(--sp-lg);
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+    }
+    .attribution p { max-width: none; margin-bottom: 0; }
+    .attribution a { color: var(--link); }
+
+    /* Back-to-top link */
+    .back-to-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-top: var(--sp-xl);
+    }
+    .back-to-top:hover { color: var(--link); }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ── HEADER ─────────────────────────────────────────── -->
+  <header role="banner">
+    <div class="nav-inner">
+      <a class="site-logo" href="../" aria-label="Public Powered Policy — home">
+        Public Powered Policy
+      </a>
+      <nav class="nav-right" aria-label="Main navigation">
+        <ul class="nav-links" role="list">
+          <li><a href="../toolkit/">Toolkit</a></li>
+          <li><a href="../process/">How It Works</a></li>
+          <li><a href="../glossary/" aria-current="page">Glossary</a></li>
+          <li><a href="../about/">About</a></li>
+          <li><a href="../contact/">Contact</a></li>
+        </ul>
+        <div class="theme-picker">
+          <button id="theme-toggle" class="theme-btn"
+                  aria-haspopup="true" aria-expanded="false"
+                  aria-controls="theme-menu" aria-label="Change color theme">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 32 32" aria-hidden="true">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                    d="M16 5V2m0 21a7 7 0 1 0 0-14 7 7 0 0 0 0 14ZM8 8 6 6m2 18-2 2M24 8l2-2m-2 18 2 2M5 16H2m14 11v3m11-14h3"/>
+            </svg>
+            <span id="theme-current">system</span>
+          </button>
+          <ul id="theme-menu" class="theme-menu" role="menu" aria-label="Theme options">
+            <li role="none"><button role="menuitemradio" data-theme-mode="system"  aria-checked="true">System default</button></li>
+            <li role="none"><button role="menuitemradio" data-theme-mode="light"   aria-checked="false">Light</button></li>
+            <li role="none"><button role="menuitemradio" data-theme-mode="dark"    aria-checked="false">Dark</button></li>
+          </ul>
+        </div>
+        <button id="mobile-menu-btn" class="btn btn-outline btn-sm menu-btn"
+                aria-expanded="false" aria-controls="mobile-nav">Menu</button>
+      </nav>
+    </div>
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+      <ul role="list">
+        <li><a href="../toolkit/">Toolkit</a></li>
+        <li><a href="../process/">How It Works</a></li>
+        <li><a href="../glossary/">Glossary</a></li>
+        <li><a href="../about/">About</a></li>
+        <li><a href="../contact/">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ── MAIN ───────────────────────────────────────────── -->
+  <main id="main-content" tabindex="-1">
+
+    <!-- Page hero -->
+    <div class="page-hero">
+      <div class="page-inner">
+        <h1>Glossary</h1>
+        <p class="lead">Plain-language definitions of common government rulemaking terms — no law degree needed.</p>
+      </div>
+    </div>
+
+    <div class="page-inner" style="padding-bottom: var(--sp-xxl);">
+
+      <!-- Intro -->
+      <p style="max-width: 68ch; margin-bottom: var(--sp-sm);">
+        Government rulemaking comes with a lot of jargon. This glossary explains the
+        most common terms so you can follow the process and participate
+        with confidence.
+      </p>
+      <p style="max-width: 68ch;">
+        Key terms are linked from the <a href="../toolkit/">Toolkit</a> and other pages on this site.
+      </p>
+
+      <!-- A–Z jump navigation -->
+      <nav aria-label="Jump to letter">
+        <ul class="az-nav" role="list">
+          <li><a href="#a" class="has-terms">A</a></li>
+          <li><a href="#b" aria-disabled="true" style="opacity:0.35; cursor:default; pointer-events:none;">B</a></li>
+          <li><a href="#c" class="has-terms">C</a></li>
+          <li><a href="#d" class="has-terms">D</a></li>
+          <li><a href="#e" class="has-terms">E</a></li>
+          <li><a href="#f" class="has-terms">F</a></li>
+          <li><a href="#g" aria-disabled="true" style="opacity:0.35; cursor:default; pointer-events:none;">G</a></li>
+          <li><a href="#h" aria-disabled="true" style="opacity:0.35; cursor:default; pointer-events:none;">H</a></li>
+          <li><a href="#i" aria-disabled="true" style="opacity:0.35; cursor:default; pointer-events:none;">I</a></li>
+          <li><a href="#j" aria-disabled="true" style="opacity:0.35; cursor:default; pointer-events:none;">J</a></li>
+          <li><a href="#k" aria-disabled="true" style="opacity:0.35; cursor:default; pointer-events:none;">K</a></li>
+          <li><a href="#l" class="has-terms">L</a></li>
+          <li><a href="#m" class="has-terms">M</a></li>
+          <li><a href="#n" class="has-terms">N</a></li>
+          <li><a href="#o" aria-disabled="true" style="opacity:0.35; cursor:default; pointer-events:none;">O</a></li>
+          <li><a href="#p" class="has-terms">P</a></li>
+          <li><a href="#q" aria-disabled="true" style="opacity:0.35; cursor:default; pointer-events:none;">Q</a></li>
+          <li><a href="#r" class="has-terms">R</a></li>
+          <li><a href="#s" aria-disabled="true" style="opacity:0.35; cursor:default; pointer-events:none;">S</a></li>
+          <li><a href="#t" aria-disabled="true" style="opacity:0.35; cursor:default; pointer-events:none;">T</a></li>
+          <li><a href="#u" class="has-terms">U</a></li>
+          <li><a href="#v" aria-disabled="true" style="opacity:0.35; cursor:default; pointer-events:none;">V</a></li>
+          <li><a href="#w" aria-disabled="true" style="opacity:0.35; cursor:default; pointer-events:none;">W</a></li>
+          <li><a href="#x" aria-disabled="true" style="opacity:0.35; cursor:default; pointer-events:none;">X</a></li>
+          <li><a href="#y" aria-disabled="true" style="opacity:0.35; cursor:default; pointer-events:none;">Y</a></li>
+          <li><a href="#z" aria-disabled="true" style="opacity:0.35; cursor:default; pointer-events:none;">Z</a></li>
+        </ul>
+      </nav>
+
+      <!-- ── A ──────────────────────────────────────────── -->
+      <section class="letter-section" id="a" aria-labelledby="letter-a">
+        <div class="letter-heading" id="letter-a" aria-label="Terms beginning with A">A</div>
+        <ul class="glossary-list" role="list">
+
+          <li class="glossary-entry" id="administrative-procedure-act">
+            <p class="term-name">Administrative Procedure Act (APA)</p>
+            <div class="term-def">
+              <p>The main federal law that sets the rules for how government agencies must create, change, or repeal regulations. Think of it as the rulebook for rulemaking.</p>
+              <p>Generally, it requires agencies to notify the public about proposed rules, accept comments from anyone, and explain how they responded to those comments before a rule takes effect. This law gives you the right to participate in the process.</p>
+            </div>
+          </li>
+
+          <li class="glossary-entry" id="agency">
+            <p class="term-name">Agency</p>
+            <div class="term-def">
+              <p>A part of the government with a specific area of responsibility. Congress gives agencies the authority to write regulations within their area. Examples include the Environmental Protection Agency (EPA), the Department of Health and Human Services (HHS), the Department of Justice (DOJ), and the Consumer Financial Protection Bureau (CFPB).</p>
+              <p>When you submit a comment, you are submitting it to the agency responsible for the rule you care about.</p>
+            </div>
+          </li>
+
+          <li class="glossary-entry" id="anprm">
+            <p class="term-name">ANPRM (Advanced Notice of Proposed Rulemaking)</p>
+            <div class="term-def">
+              <p>An optional early-stage step an agency can take before publishing its first draft of a rule (like an NPRM). It's the agency's way of saying: "We're thinking about making a rule — what do you think we should consider?"</p>
+              <p>ANPRMs are less common than NPRMs, but they're a valuable early opportunity to shape a rule before it's drafted. Your input at this stage can influence the direction of the rule more than comments submitted later.</p>
+            </div>
+            <div class="term-tip">See also: <a href="#nprm">NPRM</a>, <a href="#rfi">RFI</a></div>
+          </li>
+
+        </ul>
+        <a href="#main-content" class="back-to-top">↑ Back to top</a>
+      </section>
+
+      <!-- ── C ──────────────────────────────────────────── -->
+      <section class="letter-section" id="c" aria-labelledby="letter-c">
+        <div class="letter-heading" id="letter-c" aria-label="Terms beginning with C">C</div>
+        <ul class="glossary-list" role="list">
+
+          <li class="glossary-entry" id="comment">
+            <p class="term-name">Comment / Public Comment</p>
+            <div class="term-def">
+              <p>Written feedback that any person or organization submits to a government agency about a proposed rule. Comments become part of the official public record, and the agency is legally required to consider them.</p>
+              <p>You don't need to be an expert. A comment based on your personal experience — explaining how a rule would affect your life, your family, or your community — carries real weight. Even a short paragraph counts.</p>
+            </div>
+            <div class="term-tip">Ready to comment? See our <a href="../toolkit/">step-by-step Toolkit</a>.</div>
+          </li>
+
+          <li class="glossary-entry" id="comment-period">
+            <p class="term-name">Comment Period</p>
+            <div class="term-def">
+              <p>The window of time during which the public can submit written comments on a proposed rule. Most comment periods last 30 to 60 days, starting from the date the proposed rule is published in the Federal Register.</p>
+              <p>Timing matters. After the deadline passes, the agency is not required to consider late comments. If you need more time, you can submit a comment asking the agency to extend the deadline — but do it as early as possible, because the agency may say no.</p>
+            </div>
+            <div class="term-tip">See also: <a href="#nprm">NPRM</a>, <a href="#federal-register">Federal Register</a></div>
+          </li>
+
+          <li class="glossary-entry" id="cost-benefit-analysis">
+            <p class="term-name">Cost-Benefit Analysis</p>
+            <div class="term-def">
+              <p>A required review that agencies must complete before finalizing most significant rules. The agency estimates the likely costs of the rule — such as compliance costs for businesses or governments — and weighs them against the expected benefits, like improved safety, health outcomes, or civil rights protections.</p>
+              <p>Cost-benefit analyses are published as part of the proposed rule, so you can read them. If you think an agency has underestimated costs or overlooked benefits that matter to your community, your public comment is the place to say so.</p>
+            </div>
+            <div class="term-tip">See also: <a href="#nprm">NPRM</a>, <a href="#final-rule">Final Rule</a></div>
+          </li>
+
+        </ul>
+        <a href="#main-content" class="back-to-top">↑ Back to top</a>
+      </section>
+
+      <!-- ── D ──────────────────────────────────────────── -->
+      <section class="letter-section" id="d" aria-labelledby="letter-d">
+        <div class="letter-heading" id="letter-d" aria-label="Terms beginning with D">D</div>
+        <ul class="glossary-list" role="list">
+
+          <li class="glossary-entry" id="docket">
+            <p class="term-name">Docket (on regulations.gov)</p>
+            <div class="term-def">
+              <p>The official file for a specific rulemaking. It contains the proposed rule, every public comment received, the agency's research and supporting documents, and eventually the final rule. Dockets are public and available to anyone on <a href="https://www.regulations.gov" target="_blank" rel="noopener">regulations.gov</a>.</p>
+              <p>Browsing a docket is a good way to see what other people have said about a rule, which can help you write your own comment.</p>
+            </div>
+            <div class="term-tip">See also: <a href="#regulations-gov">Regulations.gov</a></div>
+          </li>
+
+        </ul>
+        <a href="#main-content" class="back-to-top">↑ Back to top</a>
+      </section>
+
+      <!-- ── E ──────────────────────────────────────────── -->
+      <section class="letter-section" id="e" aria-labelledby="letter-e">
+        <div class="letter-heading" id="letter-e" aria-label="Terms beginning with E">E</div>
+        <ul class="glossary-list" role="list">
+
+          <li class="glossary-entry" id="effective-date">
+            <p class="term-name">Effective Date</p>
+            <div class="term-def">
+              <p>The date on which a final rule becomes legally binding. Once the effective date arrives, people and organizations are required to comply with the rule.</p>
+              <p>Final rules typically take effect at least 30 days after they are published in the Federal Register, though some rules allow more time for compliance.</p>
+            </div>
+            <div class="term-tip">See also: <a href="#final-rule">Final Rule</a>, <a href="#federal-register">Federal Register</a></div>
+          </li>
+
+          <li class="glossary-entry" id="executive-order">
+            <p class="term-name">Executive Order</p>
+            <div class="term-def">
+              <p>A directive issued by the President that tells government agencies how to act or what to prioritize. Executive orders are not the same as laws passed by Congress, and they are not the same as regulations.</p>
+              <p>However, executive orders often set the stage for rulemaking — they can instruct agencies to write new rules, change how rules are enforced, or suspend existing ones. When an agency takes action in response to an executive order, the public comment process still applies to any resulting regulation.</p>
+            </div>
+            <div class="term-tip">See also: <a href="#regulation">Regulation</a></div>
+          </li>
+
+        </ul>
+        <a href="#main-content" class="back-to-top">↑ Back to top</a>
+      </section>
+
+      <!-- ── F ──────────────────────────────────────────── -->
+      <section class="letter-section" id="f" aria-labelledby="letter-f">
+        <div class="letter-heading" id="letter-f" aria-label="Terms beginning with F">F</div>
+        <ul class="glossary-list" role="list">
+
+          <li class="glossary-entry" id="federal-register">
+            <p class="term-name">Federal Register</p>
+            <div class="term-def">
+              <p>The official daily publication of the federal government. Agencies use it to announce proposed rules, final rules, public hearings, and other official notices. Think of it as the government's official notice board.</p>
+              <p>You can read it at <a href="https://www.federalregister.gov" target="_blank" rel="noopener">federalregister.gov</a>. Note that while you can find and read rules on the Federal Register website, you must go to <a href="https://www.regulations.gov" target="_blank" rel="noopener">regulations.gov</a> to submit your comment.</p>
+            </div>
+          </li>
+
+          <li class="glossary-entry" id="final-rule">
+            <p class="term-name">Final Rule</p>
+            <div class="term-def">
+              <p>A regulation that has completed the full public process and is now officially completed. The agency must publish the final rule in the Federal Register and explain how it responded to the public comments it received — including why it agreed or disagreed with major points raised.</p>
+              <p>Once a rule is final, it has the force of law. It should only be changed or repealed by going through the rulemaking process again — which means another opportunity for public comment.</p>
+            </div>
+            <div class="term-tip">See also: <a href="#repeal-withdrawal">Repeal / Withdrawal</a></div>
+          </li>
+
+        </ul>
+        <a href="#main-content" class="back-to-top">↑ Back to top</a>
+      </section>
+
+      <!-- ── L ──────────────────────────────────────────── -->
+      <section class="letter-section" id="l" aria-labelledby="letter-l">
+        <div class="letter-heading" id="letter-l" aria-label="Terms beginning with L">L</div>
+        <ul class="glossary-list" role="list">
+
+          <li class="glossary-entry" id="letter-advocacy">
+            <p class="term-name">Letter to an Agency</p>
+            <div class="term-def">
+              <p>A written message sent directly to an agency — outside of a formal comment period — to raise concerns, share information, or ask the agency to take a specific action. Letters are a good way to make your voice heard before a formal rulemaking begins, or to follow up after one ends.</p>
+            </div>
+          </li>
+
+        </ul>
+        <a href="#main-content" class="back-to-top">↑ Back to top</a>
+      </section>
+
+      <!-- ── M ──────────────────────────────────────────── -->
+      <section class="letter-section" id="m" aria-labelledby="letter-m">
+        <div class="letter-heading" id="letter-m" aria-label="Terms beginning with M">M</div>
+        <ul class="glossary-list" role="list">
+
+          <li class="glossary-entry" id="meeting">
+            <p class="term-name">Meeting (with an Agency)</p>
+            <div class="term-def">
+              <p>You can request a meeting with agency staff or leadership to share concerns, ask questions, or advocate for a position on a rule.</p>
+            </div>
+          </li>
+
+        </ul>
+        <a href="#main-content" class="back-to-top">↑ Back to top</a>
+      </section>
+
+      <!-- ── N ──────────────────────────────────────────── -->
+      <section class="letter-section" id="n" aria-labelledby="letter-n">
+        <div class="letter-heading" id="letter-n" aria-label="Terms beginning with N">N</div>
+        <ul class="glossary-list" role="list">
+
+          <li class="glossary-entry" id="nprm">
+            <p class="term-name">NPRM (Notice of Proposed Rulemaking, also called a Draft Rule or Proposed Rule)</p>
+            <div class="term-def">
+              <p>A formal first draft of a new or revised regulation. An NPRM includes the text of the proposed rule and an invitation for the public to submit written comments within a set time period — usually 30 to 60 days.</p>
+              <p>You may see it called a "proposed rule," a "draft rule," or referred to by its formal notice — the NPRM. They all mean the same thing: the rule isn't final yet, and your voice can still shape it.</p>
+            </div>
+            <div class="term-tip">See also: <a href="#comment-period">Comment Period</a>, <a href="#anprm">ANPRM</a></div>
+          </li>
+
+        </ul>
+        <a href="#main-content" class="back-to-top">↑ Back to top</a>
+      </section>
+
+      <!-- ── P ──────────────────────────────────────────── -->
+      <section class="letter-section" id="p" aria-labelledby="letter-p">
+        <div class="letter-heading" id="letter-p" aria-label="Terms beginning with P">P</div>
+        <ul class="glossary-list" role="list">
+
+          <li class="glossary-entry" id="public-hearing">
+            <p class="term-name">Public Hearing</p>
+            <div class="term-def">
+              <p>A formal event, organized by an agency, at which members of the public can speak directly about a proposed rule or policy. Public hearings may be held in person, online, or both.</p>
+              <p>Public hearings are separate from — and in addition to — the written comment process. You can do both.</p>
+            </div>
+          </li>
+        </ul>
+        <a href="#main-content" class="back-to-top">↑ Back to top</a>
+      </section>
+
+      <!-- ── R ──────────────────────────────────────────── -->
+      <section class="letter-section" id="r" aria-labelledby="letter-r">
+        <div class="letter-heading" id="letter-r" aria-label="Terms beginning with R">R</div>
+        <ul class="glossary-list" role="list">
+
+          <li class="glossary-entry" id="regulation">
+            <p class="term-name">Regulation / Rule</p>
+            <div class="term-def">
+              <p>A binding requirement written by a government agency that has the force of law. Regulations govern a wide range of everyday life — workplace safety, food labeling, environmental protections, civil rights, healthcare standards, and more.</p>
+              <p>Unlike laws passed by Congress, regulations are created through a process that requires public notice and comment. "Regulation" and "rule" mean the same thing and are used interchangeably.</p>
+            </div>
+            <div class="term-tip">See also: <a href="#rulemaking">Rulemaking</a></div>
+          </li>
+
+          <li class="glossary-entry" id="regulations-gov">
+            <p class="term-name">Regulations.gov</p>
+            <div class="term-def">
+              <p>The official government website where you can search for proposed rules, read public comments from others, and submit your own comment. It is the main tool you will use to participate in the rulemaking process.</p>
+              <p>Visit it at <a href="https://www.regulations.gov" target="_blank" rel="noopener">regulations.gov</a>. Note: you can read rules on the Federal Register website, but you must come to regulations.gov to comment.</p>
+            </div>
+            <div class="term-tip">Ready to use it? Our <a href="../toolkit/">Toolkit</a> walks you through it step by step.</div>
+          </li>
+
+          <li class="glossary-entry" id="repeal-withdrawal">
+            <p class="term-name">Repeal / Withdrawal</p>
+            <div class="term-def">
+              <p>When an agency decides to cancel or rollback a rule it has already started or finalized.</p>
+              <p>An agency can <strong>withdraw</strong> a proposed rule before it is finalized — essentially dropping it before it becomes official. An agency can <strong>repeal</strong> an existing regulation by going through the same public notice-and-comment process used to create it.</p>
+              <p>If you disagree with a proposed repeal or withdrawal, you can comment on it just like any other rulemaking. The process is the same, and your voice matters just as much.</p>
+            </div>
+          </li>
+
+          <li class="glossary-entry" id="rfi">
+            <p class="term-name">RFI <span class="term-abbr">(Request for Information)</span></p>
+            <div class="term-def">
+              <p>An early-stage notice where an agency asks the public for information or opinions to help it decide whether and how to write a new rule. An RFI is less formal than a proposed rule and doesn't commit the agency to any action.</p>
+              <p>Responding to an RFI is a way to get your concerns on record early — before a rule is drafted — which is often when input has the most influence.</p>
+            </div>
+            <div class="term-tip">See also: <a href="#anprm">ANPRM</a>, <a href="#nprm">NPRM</a></div>
+          </li>
+
+          <li class="glossary-entry" id="rulemaker">
+            <p class="term-name">Rulemaker / Regulator</p>
+            <div class="term-def">
+              <p>The government staff members — usually at a government agency — who research, draft, and finalize regulations. These are the people who will read your comment. They are typically career civil servants with subject-matter expertise, not elected officials.</p>
+              <p>Rulemakers are required by law to consider public input. A clear, specific comment from someone directly affected by a rule is genuinely useful to them.</p>
+            </div>
+          </li>
+
+          <li class="glossary-entry" id="rulemaking">
+            <p class="term-name">Rulemaking</p>
+            <div class="term-def">
+              <p>The formal process a government agency follows to create, change, or repeal a regulation. Learn about the rulemaking process by visiting our <a href="../process/">Rulemaking 101 page</a>.</p>
+              <p>This process is governed by the Administrative Procedure Act and is open to everyone — not just experts, lobbyists, or advocacy groups.</p>
+            </div>
+            <div class="term-tip">See also: <a href="#administrative-procedure-act">Administrative Procedure Act</a>, <a href="#nprm">NPRM</a></div>
+          </li>
+
+        </ul>
+        <a href="#main-content" class="back-to-top">↑ Back to top</a>
+      </section>
+
+      <!-- ── U ──────────────────────────────────────────── -->
+      <section class="letter-section" id="u" aria-labelledby="letter-u">
+        <div class="letter-heading" id="letter-u" aria-label="Terms beginning with U">U</div>
+        <ul class="glossary-list" role="list">
+
+          <li class="glossary-entry" id="unified-agenda">
+            <p class="term-name">Unified Agenda</p>
+            <div class="term-def">
+              <p>A report published twice a year — in the spring and the fall — that lists every regulation all government agencies are currently working on, from early planning stages through final publication. It's a useful tool for finding out what rules are coming before agencies publish formal notices.</p>
+              <p>Checking the Unified Agenda regularly is one of the best ways to get ahead of rulemakings that might affect you. You can search it at <a href="https://www.reginfo.gov/public/do/eAgendaMain" target="_blank" rel="noopener">reginfo.gov</a>.</p>
+            </div>
+          </li>
+
+        </ul>
+        <a href="#main-content" class="back-to-top">↑ Back to top</a>
+      </section>
+
+      <!-- Attribution -->
+      <aside class="attribution" aria-label="Attribution">
+        <p>
+          This glossary was developed independently for Public Powered Policy. We gratefully
+          acknowledge the
+          <a href="https://www.crreaproject.org/glossary/" target="_blank" rel="noopener">CRREA Project's Regulatory Advocacy Glossary</a>
+          as a valuable resource in the field of regulatory engagement. We encourage you to
+          visit their site for additional depth on many of these terms.
+        </p>
+      </aside>
+
+    </div><!-- /page-inner -->
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────────── -->
+  <footer role="contentinfo">
+    <p>&copy; 2025 Public Powered Policy</p>
+  </footer>
+
+</body>
+</html>

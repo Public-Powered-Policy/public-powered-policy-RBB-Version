@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Your voice matters. | Public Powered Policy</title>
+  <meta name="description" content="Government agencies are writing rules that affect your life right now. Find out how to have a say — no law degree needed.">
+
+  <!-- Theme: apply before paint to avoid flash -->
+  <script>
+    (function(){
+      var m = localStorage.getItem('ppp-mode') || 'system';
+      if (m === 'dark')  document.documentElement.classList.add('dark');
+      if (m === 'light') document.documentElement.classList.add('light');
+    })();
+  </script>
+
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+
+  <!-- Skip link (WCAG 2.4.1) -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ── HEADER ─────────────────────────────────────────── -->
+  <header role="banner">
+    <div class="nav-inner">
+      <a class="site-logo" href="/" aria-label="Public Powered Policy — home">
+        Public Powered Policy
+      </a>
+
+      <nav class="nav-right" aria-label="Main navigation">
+        <!-- Desktop nav -->
+        <ul class="nav-links" role="list">
+          <li><a href="toolkit/" aria-current="false">Toolkit</a></li>
+          <li><a href="process/">How It Works</a></li>
+          <li><a href="glossary/">Glossary</a></li>
+          <li><a href="about/">About</a></li>
+          <li><a href="contact/">Contact</a></li>
+        </ul>
+
+        <!-- Theme picker -->
+        <div class="theme-picker">
+          <button id="theme-toggle"
+                  class="theme-btn"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  aria-controls="theme-menu"
+                  aria-label="Change color theme">
+            <!-- sun/moon icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 32 32" aria-hidden="true">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                    d="M16 5V2m0 21a7 7 0 1 0 0-14 7 7 0 0 0 0 14ZM8 8 6 6m2 18-2 2M24 8l2-2m-2 18 2 2M5 16H2m14 11v3m11-14h3"/>
+            </svg>
+            <span id="theme-current">system</span>
+          </button>
+          <ul id="theme-menu" class="theme-menu" role="menu" aria-label="Theme options">
+            <li role="none">
+              <button role="menuitemradio" data-theme-mode="system"  aria-checked="true">System default</button>
+            </li>
+            <li role="none">
+              <button role="menuitemradio" data-theme-mode="light"   aria-checked="false">Light</button>
+            </li>
+            <li role="none">
+              <button role="menuitemradio" data-theme-mode="dark"    aria-checked="false">Dark</button>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button id="mobile-menu-btn"
+                class="btn btn-outline btn-sm menu-btn"
+                aria-expanded="false"
+                aria-controls="mobile-nav">Menu</button>
+      </nav>
+    </div>
+
+    <!-- Mobile nav panel -->
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+      <ul role="list">
+        <li><a href="toolkit/">Toolkit</a></li>
+        <li><a href="process/">How It Works</a></li>
+        <li><a href="glossary/">Glossary</a></li>
+        <li><a href="about/">About</a></li>
+        <li><a href="contact/">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ── MAIN CONTENT ───────────────────────────────────── -->
+  <main id="main-content" tabindex="-1">
+
+    <!-- Hero -->
+    <section class="hero-section" aria-labelledby="hero-heading">
+      <div class="hero-inner">
+        <div class="hero-text">
+          <div class="headline-brush-wrap">
+            <h1 id="hero-heading" class="hero-headline">
+              Your voice <span class="accent">matters.</span>
+            </h1>
+            <!-- Brush draws to match heading text width, not the full container -->
+            <div class="brush-divider brush-hero hero-brush" aria-hidden="true">
+              <img src="img/brush.svg" alt="" width="1076" height="64">
+            </div>
+          </div>
+          <p class="hero-sub">
+            Right now, government agencies are writing rules that will affect your
+            healthcare, your children's schools, and your rights.
+            You have the power to weigh in, and it takes less time than you think.
+          </p>
+          <div class="hero-cta">
+            <a href="toolkit/" class="btn btn-primary btn-lg">
+              Get the toolkit
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+        <div class="hero-illustration" aria-hidden="true">
+          <img src="img/illustration.svg" alt="" width="140" height="182">
+        </div>
+      </div>
+    </section>
+
+    <div class="page-inner">
+
+      <!-- Intro text -->
+      <section aria-labelledby="intro-heading" style="max-width: 68ch; margin: 0 auto;">
+        <h2 id="intro-heading" class="mt-0">You should have a say in the policies that shape your life.</h2>
+        <p>
+          A healthy democracy depends on public participation. When ordinary people show up
+          with their experiences, their expertise, and their perspectives, the rules that
+          result are more practical, more fair, and more likely to work as intended.
+        </p>
+        <p>That's why Public Powered Policy exists.</p>
+        <p>
+          We explain policymaking and highlight why it matters to you. We provide
+          practical tools so that you can show up, speak out, and protect your rights —
+          <strong>no law degree required.</strong>
+        </p>
+      </section>
+
+      <!-- How it works preview -->
+      <section class="how-it-works" aria-labelledby="how-heading">
+        <h2 id="how-heading" class="mt-0">How it works — just 3 things</h2>
+        <p style="text-align:center; color: var(--text-muted); margin-bottom: var(--sp-lg); max-width: none;">
+          Anyone can comment on a proposed federal rule. Here's how:
+        </p>
+        <ul class="steps-preview" role="list">
+          <li class="step-preview-item">
+            <span class="step-num-badge" aria-hidden="true">1</span>
+            <div>
+              <h3>Find the rule</h3>
+              <p>Search for it on regulations.gov — the official federal comment portal.</p>
+            </div>
+          </li>
+          <li class="step-preview-item">
+            <span class="step-num-badge" aria-hidden="true">2</span>
+            <div>
+              <h3>Write your comment</h3>
+              <p>Tell the agency how the rule affects you. Even a short paragraph counts. No legal language needed.</p>
+            </div>
+          </li>
+          <li class="step-preview-item">
+            <span class="step-num-badge" aria-hidden="true">3</span>
+            <div>
+              <h3>Submit it</h3>
+              <p>Click "Comment" on regulations.gov and submit. You can even do it anonymously.</p>
+            </div>
+          </li>
+        </ul>
+        <div style="text-align:center; margin-top: var(--sp-lg);">
+          <a href="toolkit/" class="btn btn-primary btn-lg">
+            See the full step-by-step guide
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Animated brush stroke divider -->
+      <div class="brush-divider" aria-hidden="true">
+        <img src="img/brush.svg" alt="" width="1076" height="64">
+      </div>
+
+      <!-- Impact teaser -->
+      <section aria-labelledby="impact-teaser-heading"
+               style="background: var(--bg-subtle); border: 1px solid var(--border); border-left: 4px solid var(--red); border-radius: var(--radius-lg); padding: var(--sp-xl) var(--sp-lg); margin: var(--sp-xl) 0;">
+        <p style="font-size: var(--text-sm); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--red); margin-bottom: var(--sp-sm); max-width: none;">It works.</p>
+        <h2 id="impact-teaser-heading" class="mt-0" style="font-size: var(--text-2xl);">Public comments have changed real government rules.</h2>
+        <p style="font-size: var(--text-lg); color: var(--text); max-width: 60ch;">
+          Public school course websites made accessible to people with disabilities. 20,000 comments stopping a quiet
+          rollback of disability protections. 4 million comments producing stronger internet
+          rules than the agency had proposed. Small farmers getting a second chance to be heard.
+        </p>
+        <p style="color: var(--text-muted); max-width: 60ch;">
+          Here are some documented outcomes from real public comments.
+          Your voice belongs in that record too.
+        </p>
+        <a href="impact/" class="btn btn-primary" style="margin-top: var(--sp-sm);">
+          See the evidence <span aria-hidden="true">→</span>
+        </a>
+      </section>
+
+    </div><!-- /page-inner -->
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────────── -->
+  <footer role="contentinfo">
+    <p>&copy; 2025 Public Powered Policy</p>
+  </footer>
+
+</body>
+</html>

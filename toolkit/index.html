@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Submit your first comment | Public Powered Policy</title>
+  <meta name="description" content="A plain-language, step-by-step guide to submitting your first public comment on a federal rule. No legal knowledge needed.">
+
+  <script>
+    (function(){
+      var m = localStorage.getItem('ppp-mode') || 'system';
+      if (m === 'dark')  document.documentElement.classList.add('dark');
+      if (m === 'light') document.documentElement.classList.add('light');
+    })();
+  </script>
+
+  <link rel="stylesheet" href="../css/main.css">
+  <script src="../js/app.js" defer></script>
+
+  <style>
+    /* ── STEP ACCORDION ───────────────────────────────────── */
+    .steps-accordion {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-sm);
+    }
+
+    .step-accordion {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-left: 4px solid var(--red);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      transition: box-shadow var(--transition);
+      scroll-margin-top: 80px;
+    }
+
+    .step-accordion[open] {
+      box-shadow: var(--shadow-lg);
+    }
+
+    .step-summary {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-md);
+      padding: var(--sp-lg);
+      cursor: pointer;
+      list-style: none;
+      user-select: none;
+      border-radius: var(--radius-lg);
+    }
+
+    .step-summary::-webkit-details-marker { display: none; }
+    .step-summary::marker { display: none; }
+
+    .step-summary:hover { background: var(--bg-subtle); }
+
+    .step-accordion[open] .step-summary {
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
+
+    .step-summary .step-title {
+      flex: 1;
+      font-size: var(--text-xl);
+      font-weight: 700;
+      color: var(--text);
+      line-height: var(--leading-tight);
+    }
+
+    /* Chevron */
+    .step-chevron {
+      width: 0.55rem;
+      height: 0.55rem;
+      border-right: 2px solid var(--text-muted);
+      border-bottom: 2px solid var(--text-muted);
+      transform: rotate(45deg);
+      transition: transform var(--transition);
+      flex-shrink: 0;
+      margin-top: -0.25rem;
+    }
+
+    .step-accordion[open] .step-chevron {
+      transform: rotate(-135deg);
+      margin-top: 0.25rem;
+    }
+
+    /* Expanded content */
+    .step-content {
+      padding: var(--sp-md) var(--sp-lg) var(--sp-lg)
+               calc(var(--sp-lg) + 2.75rem + var(--sp-md));
+      border-top: 1px solid var(--border);
+    }
+
+    .step-content p,
+    .step-content ul,
+    .step-content ol { max-width: 60ch; margin-bottom: var(--sp-sm); }
+    .step-content p:last-child { margin-bottom: 0; }
+
+    .step-content .step-note  { margin-top: var(--sp-sm); }
+    .step-content .step-action { margin-top: var(--sp-md); }
+
+    @media (max-width: 500px) {
+      .step-content { padding-left: var(--sp-lg); }
+    }
+
+    /* On narrow phones, top-align the badge so long step titles
+       wrap naturally below it rather than centering awkwardly */
+    @media (max-width: 480px) {
+      .step-summary {
+        align-items: flex-start;
+      }
+      .step-summary .step-num-badge {
+        margin-top: 0.15rem; /* optical alignment with first text line */
+        flex-shrink: 0;
+      }
+      .step-summary .step-title {
+        font-size: var(--text-base); /* slightly smaller for narrow widths */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ── HEADER ─────────────────────────────────────────── -->
+  <header role="banner">
+    <div class="nav-inner">
+      <a class="site-logo" href="../" aria-label="Public Powered Policy — home">
+        Public Powered Policy
+      </a>
+      <nav class="nav-right" aria-label="Main navigation">
+        <ul class="nav-links" role="list">
+          <li><a href="../toolkit/" aria-current="page">Toolkit</a></li>
+          <li><a href="../process/">How It Works</a></li>
+          <li><a href="../glossary/">Glossary</a></li>
+          <li><a href="../about/">About</a></li>
+          <li><a href="../contact/">Contact</a></li>
+        </ul>
+        <div class="theme-picker">
+          <button id="theme-toggle" class="theme-btn"
+                  aria-haspopup="true" aria-expanded="false"
+                  aria-controls="theme-menu" aria-label="Change color theme">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 32 32" aria-hidden="true">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                    d="M16 5V2m0 21a7 7 0 1 0 0-14 7 7 0 0 0 0 14ZM8 8 6 6m2 18-2 2M24 8l2-2m-2 18 2 2M5 16H2m14 11v3m11-14h3"/>
+            </svg>
+            <span id="theme-current">system</span>
+          </button>
+          <ul id="theme-menu" class="theme-menu" role="menu" aria-label="Theme options">
+            <li role="none"><button role="menuitemradio" data-theme-mode="system"  aria-checked="true">System default</button></li>
+            <li role="none"><button role="menuitemradio" data-theme-mode="light"   aria-checked="false">Light</button></li>
+            <li role="none"><button role="menuitemradio" data-theme-mode="dark"    aria-checked="false">Dark</button></li>
+          </ul>
+        </div>
+        <button id="mobile-menu-btn" class="btn btn-outline btn-sm menu-btn"
+                aria-expanded="false" aria-controls="mobile-nav">Menu</button>
+      </nav>
+    </div>
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+      <ul role="list">
+        <li><a href="../toolkit/">Toolkit</a></li>
+        <li><a href="../process/">How It Works</a></li>
+        <li><a href="../glossary/">Glossary</a></li>
+        <li><a href="../about/">About</a></li>
+        <li><a href="../contact/">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ── MAIN ───────────────────────────────────────────── -->
+  <main id="main-content" tabindex="-1">
+    <div class="page-hero">
+      <div class="page-inner">
+        <div class="headline-brush-wrap">
+          <h1>Submit your first comment</h1>
+          <div class="brush-divider brush-hero hero-brush" aria-hidden="true">
+            <img src="../img/brush.svg" alt="" width="1076" height="64">
+          </div>
+        </div>
+        <p class="lead">
+          Anyone can comment on a proposed federal rule — and your words actually matter.
+          This guide walks you through every step.
+        </p>
+      </div>
+    </div>
+
+    <div class="docs-layout" style="padding: 0 var(--sp-lg) var(--sp-xxl);">
+
+      <!-- ── Sidebar TOC ─────────────────────────────────── -->
+      <nav class="docs-sidebar" aria-label="Page sections">
+        <p class="toc-label">On this page</p>
+        <ul class="toc-list" role="list">
+          <li><a href="#intro">Before you begin</a></li>
+          <li><a href="#step-1">Step 1: Find the rule</a></li>
+          <li><a href="#step-2">Step 2: Check the deadline</a></li>
+          <li><a href="#step-3">Step 3: Learn about the rule</a></li>
+          <li><a href="#step-4">Step 4: Write your comment</a></li>
+          <li><a href="#step-5">Step 5: Submit</a></li>
+          <li><a href="#step-6">Step 6: Stay involved</a></li>
+          <li><a href="#more-info">More resources</a></li>
+        </ul>
+      </nav>
+
+      <!-- ── Article ────────────────────────────────────── -->
+      <article>
+
+        <!-- Intro -->
+        <div class="toolkit-intro" id="intro">
+          <span class="time-badge" aria-label="Estimated time">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            About 30 minutes
+          </span>
+
+          <p>
+            So you want to comment on a rule — also called a federal policy. Maybe you heard
+            about it in the news, from a friend, on social media, or on a podcast. The rule
+            affects your life or the world around you, and you have something to say.
+          </p>
+          <p>
+            That's exactly how this is supposed to work.
+            <strong>Anyone can comment, and your voice truly matters.</strong>
+            And don't worry — you don't need any special training to get started.
+          </p>
+          <p>
+            This guide will walk you through how to find the rule, submit your comment, and
+            stay involved. We'll answer common questions along the way.
+          </p>
+
+          <div class="step-note">
+            <p>
+              <strong>Quick note on language:</strong>
+              You may hear rules called "<a href="../glossary/#proposed-rule">proposed rules</a>" or "draft rules." That just means they
+              aren't final yet. On this page, we use the word <em>rule</em> to keep things simple.
+              Unfamiliar with any of the terms on this page? Our <a href="../glossary/">plain-language Glossary</a> explains them all.
+            </p>
+          </div>
+
+          <a href="https://www.regulations.gov/" class="btn btn-primary" target="_blank" rel="noopener">
+            Open regulations.gov — the official comment portal
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+        <!-- Animated brush stroke divider -->
+        <div class="brush-divider" aria-hidden="true">
+          <img src="../img/brush.svg" alt="" width="1076" height="64">
+        </div>
+
+        <!-- ── Steps ────────────────────────────────────── -->
+        <h2 class="mt-0" style="margin-bottom: var(--sp-lg);" id="how-to-comment">How to submit your first comment</h2>
+
+        <div class="steps-accordion">
+
+          <!-- STEP 1 -->
+          <details class="step-accordion" id="step-1">
+            <summary class="step-summary">
+              <span class="step-num-badge" aria-hidden="true">1</span>
+              <span class="step-title">Find the rule.</span>
+              <span class="step-chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="step-content">
+              <p>The official place to find and comment on federal rules is <strong>regulations.gov</strong>.</p>
+              <ol class="step-substeps" role="list">
+                <li class="step-substep">
+                  <span class="step-substep-num" aria-hidden="true">a</span>
+                  <div class="step-substep-text">
+                    <p>Go to <a href="https://www.regulations.gov/" target="_blank" rel="noopener"><strong>regulations.gov</strong></a>.</p>
+                  </div>
+                </li>
+                <li class="step-substep">
+                  <span class="step-substep-num" aria-hidden="true">b</span>
+                  <div class="step-substep-text">
+                    <p>Search for the rule using keywords. You can also refine your search by:</p>
+                    <ul>
+                      <li>Agency (for example, DOJ for the Department of Justice, or HHS for Health and Human Services)</li>
+                      <li>The date the rule was published</li>
+                      <li>Type of document (for example, "proposed rule")</li>
+                    </ul>
+                    <p>Refining your search helps make sure you've found the right rule.</p>
+                  </div>
+                </li>
+                <li class="step-substep">
+                  <span class="step-substep-num" aria-hidden="true">c</span>
+                  <div class="step-substep-text">
+                    <p>If you know the comment period is currently open, check the box that says
+                      <strong>"Only show documents open for comment."</strong>
+                    </p>
+                  </div>
+                </li>
+              </ol>
+              <div class="step-note">
+                <p>You can also find and read rules on
+                  <a href="https://www.federalregister.gov/" target="_blank" rel="noopener">federalregister.gov</a>,
+                  but you must go to regulations.gov to submit your comment.
+                </p>
+              </div>
+              <div class="step-action">
+                <a href="https://www.regulations.gov/" class="btn btn-primary" target="_blank" rel="noopener">
+                  Go to regulations.gov <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
+          </details>
+
+          <!-- STEP 2 -->
+          <details class="step-accordion" id="step-2">
+            <summary class="step-summary">
+              <span class="step-num-badge" aria-hidden="true">2</span>
+              <span class="step-title">Check when comments are due.</span>
+              <span class="step-chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="step-content">
+              <p>Every open rule has a deadline. Look for it on the rule's page on regulations.gov.</p>
+              <ul>
+                <li>
+                  <strong>Most rules have 30- or 60-day <a href="../glossary/#comment-period">comment periods</a>.</strong>
+                  Submit your comment before the deadline — late comments may not be considered.
+                </li>
+                <li>
+                  <strong>If you need more time:</strong> Submit a comment as soon as possible
+                  asking the agency to extend the deadline. Note that they may say no, so try
+                  to meet the original deadline if you can.
+                </li>
+              </ul>
+            </div>
+          </details>
+
+          <!-- STEP 3 -->
+          <details class="step-accordion" id="step-3">
+            <summary class="step-summary">
+              <span class="step-num-badge" aria-hidden="true">3</span>
+              <span class="step-title">Learn about the rule.</span>
+              <span class="step-chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="step-content">
+              <p>Rules are often long and dense. You don't need to read every word.</p>
+              <p>To get a quick overview, try these approaches:</p>
+              <ul>
+                <li>Start with the rule's <strong>executive summary</strong> (usually near the top).</li>
+                <li>Look for <strong>fact sheets or plain-language explainers</strong> from the agency or from advocacy groups.</li>
+                <li>Use <strong>AI tools</strong> (like ChatGPT or Claude) to help summarize the rule —
+                  just double-check any important details, since AI can sometimes get things wrong.</li>
+                <li>Read <strong>comments others have already submitted</strong> to get ideas.
+                  Find them in the "Comments" tab on the rule's page on regulations.gov.</li>
+              </ul>
+              <div class="step-action">
+                <a href="https://www.regulations.gov/" class="btn btn-outline" target="_blank" rel="noopener">
+                  Browse open rules on regulations.gov <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
+          </details>
+
+          <!-- STEP 4 -->
+          <details class="step-accordion" id="step-4">
+            <summary class="step-summary">
+              <span class="step-num-badge" aria-hidden="true">4</span>
+              <span class="step-title">Write your comment.</span>
+              <span class="step-chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="step-content">
+              <p>Your comment doesn't need to sound legal or technical. <strong>Even a short paragraph can make a difference.</strong></p>
+              <ul>
+                <li><strong>Focus on how the rule affects you and your community.</strong>
+                  Be specific. Tell the agency what you think should change and why it matters.</li>
+                <li><strong>You can submit anonymously.</strong>
+                  You do not have to include your name.</li>
+                <li><strong>You can use AI to help draft your comment</strong> — just review it
+                  carefully so it's accurate and says what you actually want to say.</li>
+              </ul>
+              <div class="step-note">
+                <p>For more tips on writing an effective comment, see:
+                  <a href="https://www.regulations.gov/commenting-guidance" target="_blank" rel="noopener">regulations.gov commenting guidance</a>
+                  and the <a href="https://governingforimpact.org/wp-content/uploads/2025/05/Writing-Adverse-Comments.pdf" target="_blank" rel="noopener">Writing Adverse Comments guide</a> (PDF).</p>
+              </div>
+            </div>
+          </details>
+
+          <!-- STEP 5 -->
+          <details class="step-accordion" id="step-5">
+            <summary class="step-summary">
+              <span class="step-num-badge" aria-hidden="true">5</span>
+              <span class="step-title">Submit your comment — you're almost done!</span>
+              <span class="step-chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="step-content">
+              <p>Head back to regulations.gov to submit your comment.</p>
+              <ol class="step-substeps" role="list">
+                <li class="step-substep">
+                  <span class="step-substep-num" aria-hidden="true">1</span>
+                  <div class="step-substep-text">
+                    <p>Go to your rule on <a href="https://www.regulations.gov/" target="_blank" rel="noopener"><strong>regulations.gov</strong></a>.</p>
+                  </div>
+                </li>
+                <li class="step-substep">
+                  <span class="step-substep-num" aria-hidden="true">2</span>
+                  <div class="step-substep-text">
+                    <p>Find and select the <strong>"Comment"</strong> button on the rule's page.</p>
+                  </div>
+                </li>
+                <li class="step-substep">
+                  <span class="step-substep-num" aria-hidden="true">3</span>
+                  <div class="step-substep-text">
+                    <p>Type your comment in the text box, or upload a document. Then submit.</p>
+                  </div>
+                </li>
+              </ol>
+              <div class="step-note">
+                <p><strong>Privacy reminder:</strong> You can comment anonymously. Do not include
+                  personal information like your date of birth, or confidential business information.
+                  Your comment may be publicly viewable.</p>
+              </div>
+              <div class="step-action">
+                <a href="https://www.regulations.gov/" class="btn btn-primary" target="_blank" rel="noopener">
+                  Go to regulations.gov to submit <span aria-hidden="true">↗</span>
+                </a>
+              </div>
+            </div>
+          </details>
+
+          <!-- STEP 6 -->
+          <details class="step-accordion" id="step-6">
+            <summary class="step-summary">
+              <span class="step-num-badge" aria-hidden="true">6</span>
+              <span class="step-title">Stay involved after you comment.</span>
+              <span class="step-chevron" aria-hidden="true"></span>
+            </summary>
+            <div class="step-content">
+              <p>Your comment has been submitted — but the process isn't over yet.</p>
+              <p>After the comment period closes, the agency reviews all the comments and may
+                change the rule. It then usually publishes a <a href="../glossary/#final-rule">final rule</a> that responds to the
+                major themes raised in the comments. Sometimes the agency withdraws the rule entirely.</p>
+              <p><strong>To stay up to date:</strong></p>
+              <ul>
+                <li>Set a search alert for the rule on regulations.gov.</li>
+                <li>Check <a href="https://www.federalregister.gov/" target="_blank" rel="noopener">federalregister.gov</a> for updates.</li>
+                <li>Follow news sources or podcasts — especially where you first heard about the rule.</li>
+              </ul>
+              <p>Also check whether the agency extends the comment period or asks for additional public input.</p>
+            </div>
+          </details>
+
+        </div><!-- /steps-accordion -->
+
+        <!-- More info -->
+        <section class="more-info" aria-labelledby="more-info-heading">
+          <h2 id="more-info-heading">More information on <a href="../glossary/#rulemaking">rulemaking</a> and the regulatory process</h2>
+          <p>If you want to learn more about how this all works, here are some helpful resources:</p>
+          <ul class="resource-list" role="list">
+            <li>
+              <a href="../process/">
+                How Federal Rules Get Made — our plain-language overview
+              </a>
+            </li>
+            <li>
+              <a href="https://www.regulations.gov/learn" target="_blank" rel="noopener">
+                Regulations.gov — Learn about the process <span aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://youtu.be/NGc1SUedEr0" target="_blank" rel="noopener">
+                The Rulemaking Process: A Primer by FDA (video) <span aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.congress.gov/crs-product/RL32240" target="_blank" rel="noopener">
+                The Federal Rulemaking Process: An Overview (Congress.gov) <span aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://eelp.law.harvard.edu/wp-content/uploads/2025/01/EELP-Regulatory-Process-Summary.pdf" target="_blank" rel="noopener">
+                A Step-by-Step Guide to Agency Rulemaking and Rule Rollbacks — Harvard <span aria-label="opens PDF">(PDF)</span> <span aria-hidden="true">↗</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+
+      </article>
+    </div>
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────────── -->
+  <footer role="contentinfo">
+    <p>&copy; 2025 Public Powered Policy</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Message received | Public Powered Policy</title>
+  <meta name="robots" content="noindex">
+
+  <script>
+    (function(){
+      var m = localStorage.getItem('ppp-mode') || 'system';
+      if (m === 'dark')  document.documentElement.classList.add('dark');
+      if (m === 'light') document.documentElement.classList.add('light');
+    })();
+  </script>
+
+  <link rel="stylesheet" href="../css/main.css">
+  <script src="../js/app.js" defer></script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ── HEADER ─────────────────────────────────────────── -->
+  <header role="banner">
+    <div class="nav-inner">
+      <a class="site-logo" href="../" aria-label="Public Powered Policy — home">
+        Public Powered Policy
+      </a>
+      <nav class="nav-right" aria-label="Main navigation">
+        <ul class="nav-links" role="list">
+          <li><a href="../toolkit/">Toolkit</a></li>
+          <li><a href="../process/">How It Works</a></li>
+          <li><a href="../glossary/">Glossary</a></li>
+          <li><a href="../about/">About</a></li>
+          <li><a href="../contact/">Contact</a></li>
+        </ul>
+        <div class="theme-picker">
+          <button id="theme-toggle" class="theme-btn"
+                  aria-haspopup="true" aria-expanded="false"
+                  aria-controls="theme-menu" aria-label="Change color theme">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 32 32" aria-hidden="true">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                    d="M16 5V2m0 21a7 7 0 1 0 0-14 7 7 0 0 0 0 14ZM8 8 6 6m2 18-2 2M24 8l2-2m-2 18 2 2M5 16H2m14 11v3m11-14h3"/>
+            </svg>
+            <span id="theme-current">system</span>
+          </button>
+          <ul id="theme-menu" class="theme-menu" role="menu" aria-label="Theme options">
+            <li role="none"><button role="menuitemradio" data-theme-mode="system"  aria-checked="true">System default</button></li>
+            <li role="none"><button role="menuitemradio" data-theme-mode="light"   aria-checked="false">Light</button></li>
+            <li role="none"><button role="menuitemradio" data-theme-mode="dark"    aria-checked="false">Dark</button></li>
+          </ul>
+        </div>
+        <button id="mobile-menu-btn" class="btn btn-outline btn-sm menu-btn"
+                aria-expanded="false" aria-controls="mobile-nav">Menu</button>
+      </nav>
+    </div>
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+      <ul role="list">
+        <li><a href="../toolkit/">Toolkit</a></li>
+        <li><a href="../process/">How It Works</a></li>
+        <li><a href="../glossary/">Glossary</a></li>
+        <li><a href="../about/">About</a></li>
+        <li><a href="../contact/">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ── MAIN ───────────────────────────────────────────── -->
+  <main id="main-content" tabindex="-1">
+
+    <div class="page-hero">
+      <div class="page-inner">
+        <h1>Message received</h1>
+      </div>
+    </div>
+
+    <div class="page-inner" style="max-width: 56ch; margin-top: var(--sp-xl);">
+      <p>Thanks for reaching out. We read every message and will be in touch soon.</p>
+      <a href="../" class="btn btn-primary" style="margin-top: var(--sp-md);">Back to home</a>
+    </div>
+
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────────── -->
+  <footer role="contentinfo">
+    <p>&copy; 2025 Public Powered Policy</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>How Federal Rules Get Made | Public Powered Policy</title>
+  <meta name="description" content="A plain-language, step-by-step guide to how government agencies create regulations — and where your voice fits in.">
+
+  <script>
+    (function(){
+      var m = localStorage.getItem('ppp-mode') || 'system';
+      if (m === 'dark')  document.documentElement.classList.add('dark');
+      if (m === 'light') document.documentElement.classList.add('light');
+    })();
+  </script>
+
+  <link rel="stylesheet" href="../css/main.css">
+  <script src="../js/app.js" defer></script>
+
+  <style>
+    /* ── PROCESS-PAGE SPECIFIC STYLES ─────────────────────── */
+
+    /* "Three things to know" card grid */
+    .key-facts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: var(--sp-md);
+      margin: var(--sp-lg) 0 var(--sp-xl);
+    }
+
+    .key-fact-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-top: 4px solid var(--red);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-lg);
+      box-shadow: var(--shadow);
+    }
+
+    .key-fact-card .fact-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: var(--red);
+      color: #ffffff;
+      font-size: var(--text-sm);
+      font-weight: 800;
+      margin-bottom: var(--sp-sm);
+    }
+
+    .key-fact-card h3 {
+      font-size: var(--text-base);
+      font-weight: 800;
+      margin-bottom: 0.4rem;
+      color: var(--text);
+    }
+
+    .key-fact-card p {
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+      line-height: var(--leading);
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ── HEADER ─────────────────────────────────────────── -->
+  <header role="banner">
+    <div class="nav-inner">
+      <a class="site-logo" href="../" aria-label="Public Powered Policy — home">
+        Public Powered Policy
+      </a>
+      <nav class="nav-right" aria-label="Main navigation">
+        <ul class="nav-links" role="list">
+          <li><a href="../toolkit/">Toolkit</a></li>
+          <li><a href="../process/" aria-current="page">How It Works</a></li>
+          <li><a href="../glossary/">Glossary</a></li>
+          <li><a href="../about/">About</a></li>
+          <li><a href="../contact/">Contact</a></li>
+        </ul>
+        <div class="theme-picker">
+          <button id="theme-toggle" class="theme-btn"
+                  aria-haspopup="true" aria-expanded="false"
+                  aria-controls="theme-menu" aria-label="Change color theme">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 32 32" aria-hidden="true">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                    d="M16 5V2m0 21a7 7 0 1 0 0-14 7 7 0 0 0 0 14ZM8 8 6 6m2 18-2 2M24 8l2-2m-2 18 2 2M5 16H2m14 11v3m11-14h3"/>
+            </svg>
+            <span id="theme-current">system</span>
+          </button>
+          <ul id="theme-menu" class="theme-menu" role="menu" aria-label="Theme options">
+            <li role="none"><button role="menuitemradio" data-theme-mode="system"  aria-checked="true">System default</button></li>
+            <li role="none"><button role="menuitemradio" data-theme-mode="light"   aria-checked="false">Light</button></li>
+            <li role="none"><button role="menuitemradio" data-theme-mode="dark"    aria-checked="false">Dark</button></li>
+          </ul>
+        </div>
+        <button id="mobile-menu-btn" class="btn btn-outline btn-sm menu-btn"
+                aria-expanded="false" aria-controls="mobile-nav">Menu</button>
+      </nav>
+    </div>
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+      <ul role="list">
+        <li><a href="../toolkit/">Toolkit</a></li>
+        <li><a href="../process/">How It Works</a></li>
+        <li><a href="../glossary/">Glossary</a></li>
+        <li><a href="../about/">About</a></li>
+        <li><a href="../contact/">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ── MAIN ───────────────────────────────────────────── -->
+  <main id="main-content" tabindex="-1">
+
+    <div class="page-hero">
+      <div class="page-inner">
+        <div class="headline-brush-wrap">
+          <h1>How Federal Rules Get Made</h1>
+          <div class="brush-divider brush-hero hero-brush" aria-hidden="true">
+            <img src="../img/brush.svg" alt="" width="1076" height="64">
+          </div>
+        </div>
+        <p class="lead">A plain-language guide to how agencies create regulations — and where your voice fits in.</p>
+      </div>
+    </div>
+
+    <div class="docs-layout" style="padding: 0 var(--sp-lg) var(--sp-xxl);">
+
+      <!-- ── Sidebar TOC ─────────────────────────────────── -->
+      <nav class="docs-sidebar" aria-label="Page sections">
+        <p class="toc-label">On this page</p>
+        <ul class="toc-list" role="list">
+          <li><a href="#key-facts">Three things to keep in mind</a></li>
+          <li><a href="#step-1">Step 1: How a rule gets started</a></li>
+          <li><a href="#step-2">Step 2: An agency writes a first draft</a></li>
+          <li><a href="#step-3">Step 3: The draft is published for public comment</a></li>
+          <li><a href="#step-4">Step 4: You can weigh in</a></li>
+          <li><a href="#step-5">Step 5: The agency makes changes</a></li>
+          <li><a href="#step-6">Step 6: Final rule published</a></li>
+          <li><a href="#step-7">Step 7: Rule takes effect</a></li>
+        </ul>
+      </nav>
+
+      <!-- ── Article ────────────────────────────────────── -->
+      <article>
+
+        <p style="margin-bottom: var(--sp-lg);">
+          Government agencies write rules to put laws passed by Congress into practice.
+          These rules are called <a href="../glossary/#regulation">regulations</a>,
+          and once they're final, they have the force of law.
+          Here's how that process works — and how you can participate.
+        </p>
+
+        <!-- Three things to know -->
+        <section id="key-facts" aria-labelledby="key-facts-heading"
+                 style="scroll-margin-top: 80px;">
+          <h2 id="key-facts-heading" class="mt-0">Three things to keep in mind</h2>
+          <div class="key-facts-grid">
+
+            <div class="key-fact-card">
+              <div class="fact-num" aria-hidden="true">1</div>
+              <h3>The process is open to everyone</h3>
+              <p>Anyone can read the draft rule (called a proposed rule) and submit written feedback — no expertise, law degree, or special status required.</p>
+            </div>
+
+            <div class="key-fact-card">
+              <div class="fact-num" aria-hidden="true">2</div>
+              <h3>Your voice matters</h3>
+              <p>Agencies are legally required to consider public comments. Comments can — and do — change the final outcome.</p>
+            </div>
+
+            <div class="key-fact-card">
+              <div class="fact-num" aria-hidden="true">3</div>
+              <h3>Nothing is final yet</h3>
+              <p>Until a rule is published as final, it can still be changed. Early input often has the most impact.</p>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- Animated brush stroke divider -->
+        <div class="brush-divider" aria-hidden="true">
+          <img src="../img/brush.svg" alt="" width="1076" height="64">
+        </div>
+
+        <!-- Steps -->
+        <h2 class="mt-0" style="margin-bottom: var(--sp-lg);">The process, step by step</h2>
+
+        <ol class="steps-list" role="list">
+
+          <!-- STEP 1 -->
+          <li class="step-card" id="step-1">
+            <span class="step-num-badge" aria-label="Step 1">1</span>
+            <div class="step-body">
+              <h3>How a rule gets started</h3>
+              <p>
+                Most rules start with Congress. When Congress passes a law, it often directs
+                a government agency to work out the details — the law sets the goal, and the
+                agency figures out exactly how to reach it.
+              </p>
+              <div class="step-note">
+                <p>
+                  <strong>Example:</strong> The Air Carrier Access Act directed the Department of
+                  Transportation to write rules making air travel accessible for people with
+                  disabilities. Congress set the requirement; DOT wrote the specifics.
+                </p>
+              </div>
+              <p>
+                Agencies can also decide on their own to create or update a rule — for instance,
+                if an existing rule isn't working as intended, if circumstances change, or if new
+                technology raises new questions that existing rules don't address.
+              </p>
+            </div>
+          </li>
+
+          <!-- STEP 2 -->
+          <li class="step-card" id="step-2">
+            <span class="step-num-badge" aria-label="Step 2">2</span>
+            <div class="step-body">
+              <h3>An agency writes a first draft</h3>
+              <p>
+                Agency staff research the issue and write a draft of what the rule might say.
+                This draft is called a <a href="../glossary/#proposed-rule">proposed rule</a>.
+                It explains what the agency wants to require — and why.
+              </p>
+              <p>
+                Before it goes public, other government agencies review the draft and give
+                feedback to make sure it's workable and consistent with other laws.
+              </p>
+            </div>
+          </li>
+
+          <!-- STEP 3 -->
+          <li class="step-card" id="step-3">
+            <span class="step-num-badge" aria-label="Step 3">3</span>
+            <div class="step-body">
+              <h3>The draft is published for public comment</h3>
+              <p>
+                The agency publishes the proposed rule in the
+                <a href="../glossary/#federal-register">Federal Register</a> — the government's
+                official daily publication. This announcement is formally called a
+                <a href="../glossary/#nprm">Notice of Proposed Rulemaking (NPRM)</a>.
+              </p>
+              <p>The published draft tells you:</p>
+              <ul>
+                <li>What the agency is proposing to require</li>
+                <li>Why it believes the rule is needed</li>
+                <li>The expected costs and benefits</li>
+                <li>How to submit your feedback</li>
+              </ul>
+              <p>
+                Once published, there is usually at least 30 days — and often 60 days or more —
+                for anyone to respond. That includes individuals, businesses, community groups,
+                and anyone else who has something to say.
+              </p>
+            </div>
+          </li>
+
+          <!-- STEP 4 -->
+          <li class="step-card" id="step-4">
+            <span class="step-num-badge" aria-label="Step 4">4</span>
+            <div class="step-body">
+              <h3>You can weigh in</h3>
+              <p>
+                This is your moment. Anyone can submit a
+                <a href="../glossary/#comment">public comment</a> — no expertise required.
+                You can share how the proposed rule would affect you or your community,
+                raise questions, point out problems, or suggest changes.
+              </p>
+              <p>
+                Agencies are required to review and consider the feedback they receive
+                before the rule can be finalized.
+              </p>
+              <div class="step-action">
+                <a href="../toolkit/" class="btn btn-primary">
+                  Learn how to submit a comment <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </div>
+          </li>
+
+          <!-- STEP 5 -->
+          <li class="step-card" id="step-5">
+            <span class="step-num-badge" aria-label="Step 5">5</span>
+            <div class="step-body">
+              <h3>The agency makes changes</h3>
+              <p>
+                After the <a href="../glossary/#comment-period">comment period</a> closes, the
+                agency goes through all the feedback. It may revise the rule — keeping what it
+                thinks works and making changes in response to legitimate concerns or better alternatives.
+              </p>
+              <p>
+                Other government agencies also review the revised rule for consistency with
+                broader government programs and requirements.
+              </p>
+            </div>
+          </li>
+
+          <!-- STEP 6 -->
+          <li class="step-card" id="step-6">
+            <span class="step-num-badge" aria-label="Step 6">6</span>
+            <div class="step-body">
+              <h3>Final rule published</h3>
+              <p>
+                Once revisions are complete, the agency publishes a
+                <a href="../glossary/#final-rule">final rule</a> in the Federal Register.
+                The final rule explains:
+              </p>
+              <ul>
+                <li>What the rule will require</li>
+                <li>What changed from the draft version, and why</li>
+                <li>How public comments influenced the decisions</li>
+                <li>The expected costs and benefits</li>
+                <li>When the rule takes effect — and when people and organizations must comply</li>
+              </ul>
+              <div class="step-note">
+                <p>
+                  <strong>Why this matters for you:</strong> The agency is required to respond
+                  to significant issues raised in public comments. This is one reason your comment
+                  matters — it goes on the official record, and the agency must address it.
+                </p>
+              </div>
+              <p>
+                Final rules typically take effect at least 30 days after publication, though
+                some rules allow more time to comply.
+              </p>
+            </div>
+          </li>
+
+
+          <!-- STEP 7 -->
+          <li class="step-card" id="step-7">
+            <span class="step-num-badge" aria-label="Step 7">7</span>
+            <div class="step-body">
+              <h3>The rule takes effect and can be enforced</h3>
+              <p>
+                Once the <a href="../glossary/#effective-date">effective date</a> arrives, the rule has the force of law. People and
+                organizations are expected to follow it — just like any other law. In many
+                cases, the agency has the authority to investigate and enforce compliance if
+                the rule isn't followed.
+              </p>
+            </div>
+          </li>
+
+        </ol><!-- /steps-list -->
+
+        <!-- Bottom CTA -->
+        <div style="margin-top: var(--sp-xl); padding: var(--sp-xl) var(--sp-lg); background: var(--navy); border-radius: var(--radius-lg); text-align: center;">
+          <p style="font-size: var(--text-xl); font-weight: 800; max-width: none; margin-bottom: 0.5rem; color: #fff;">
+            Ready to make your voice heard?
+          </p>
+          <p style="color: rgba(255,255,255,0.75); max-width: none; margin-bottom: var(--sp-lg);">
+            Now that you know how the process works, use our step-by-step Toolkit to
+            submit your first comment.
+          </p>
+          <a href="../toolkit/" class="btn btn-primary btn-lg">
+            Go to the Submit your first comment page <span aria-hidden="true">→</span>
+          </a>
+        </div>
+
+      </article>
+    </div>
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────────── -->
+  <footer role="contentinfo">
+    <p>&copy; 2025 Public Powered Policy</p>
+  </footer>
+
+</body>
+</html>

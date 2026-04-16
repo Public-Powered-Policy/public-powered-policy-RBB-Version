@@ -86,20 +86,20 @@
         </p>
 
         <form id="contact-form"
-              name="contact"
               method="POST"
               action="/thank-you/"
-              data-netlify="true"
-              data-netlify-honeypot="bot-field"
               novalidate>
+
+          <!-- Web3Forms required fields -->
+          <input type="hidden" name="access_key" value="1a73a12f-f4be-4c98-9c15-3b3ef2e5a31d">
+          <input type="hidden" name="subject" value="New message from publicpoweredpolicy.com">
+          <input type="hidden" name="redirect" value="false">
 
           <!-- Honeypot anti-spam field (hidden from real users) -->
           <div class="honeypot" aria-hidden="true">
             <label for="bot-field">Don't fill this out if you're human</label>
-            <input id="bot-field" name="bot-field" tabindex="-1" autocomplete="off">
+            <input id="bot-field" name="botcheck" tabindex="-1" autocomplete="off">
           </div>
-
-          <input type="hidden" name="form-name" value="contact">
 
           <div class="form-group">
             <label for="name">Your name <span aria-hidden="true">(optional)</span></label>

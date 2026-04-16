@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       const body = new URLSearchParams(new FormData(form)).toString();
-      const res  = await fetch('/', {
+      const res  = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body

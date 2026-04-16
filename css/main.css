@@ -309,7 +309,7 @@ header {
 }
 .mobile-nav a:last-child { border-bottom: none; }
 
-@media (max-width: 780px) {
+@media (max-width: 1023px) {
   .nav-links { display: none; }
   .menu-btn  { display: block; }
 }

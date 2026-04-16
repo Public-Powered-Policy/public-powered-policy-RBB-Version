@@ -82,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
   menuBtn.addEventListener('click', () => {
     const open = mobileNav.classList.toggle('open');
     menuBtn.setAttribute('aria-expanded', open);
+    mobileNav.setAttribute('aria-hidden', !open);
     menuBtn.textContent = open ? 'Close' : 'Menu';
   });
 
@@ -90,6 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', () => {
       mobileNav.classList.remove('open');
       menuBtn.setAttribute('aria-expanded', 'false');
+      mobileNav.setAttribute('aria-hidden', 'true');
       menuBtn.textContent = 'Menu';
     });
   });
@@ -152,12 +154,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       const body = new URLSearchParams(new FormData(form)).toString();
-      const res  = await fetch('/.netlify/functions/contact', {
+      const res  = await fetch('/', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          'Accept': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body
       });
 

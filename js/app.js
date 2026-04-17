@@ -24,6 +24,13 @@
     // Update button label
     const label = document.getElementById('theme-current');
     if (label) label.textContent = mode;
+
+    // Update aria-label to include current mode (SC 2.5.3)
+    const themeLabels = { system: 'System default', light: 'Light', dark: 'Dark' };
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+      themeToggle.setAttribute('aria-label', `Color theme: ${themeLabels[mode] || mode}`);
+    }
   }
 
   // Apply on page load (before paint to avoid flash)
@@ -141,13 +148,42 @@ document.addEventListener('DOMContentLoaded', () => {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const submitBtn = form.querySelector('[type="submit"]');
-    const success   = document.getElementById('form-success');
-    const error     = document.getElementById('form-error');
+    const submitBtn    = form.querySelector('[type="submit"]');
+    const success      = document.getElementById('form-success');
+    const error        = document.getElementById('form-error');
+    const emailField   = document.getElementById('email');
+    const messageField = document.getElementById('message');
 
     // Hide any previous messages
     if (success) success.style.display = 'none';
     if (error)   error.style.display   = 'none';
+
+    // Client-side validation (SC 3.3.1 — Error Identification)
+    const missing = [];
+    const emailVal = emailField ? emailField.value.trim() : '';
+    const emailOk  = emailVal && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal);
+    if (!emailOk) {
+      if (emailField) emailField.setAttribute('aria-invalid', 'true');
+      missing.push('a valid email address');
+    } else {
+      if (emailField) emailField.removeAttribute('aria-invalid');
+    }
+    const msgOk = messageField && messageField.value.trim();
+    if (!msgOk) {
+      if (messageField) messageField.setAttribute('aria-invalid', 'true');
+      missing.push('a message');
+    } else {
+      if (messageField) messageField.removeAttribute('aria-invalid');
+    }
+
+    if (missing.length) {
+      if (error) {
+        error.textContent = `Please provide ${missing.join(' and ')}.`;
+        error.style.display = 'block';
+        error.focus();
+      }
+      return;
+    }
 
     submitBtn.disabled    = true;
     submitBtn.textContent = 'Sending…';
@@ -162,6 +198,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (res.ok) {
         form.reset();
+        if (emailField)   emailField.removeAttribute('aria-invalid');
+        if (messageField) messageField.removeAttribute('aria-invalid');
         if (success) {
           success.style.display = 'block';
           success.focus();
@@ -171,6 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     } catch {
       if (error) {
+        error.textContent = 'Something went wrong. Please try again, or email us directly.';
         error.style.display = 'block';
         error.focus();
       }

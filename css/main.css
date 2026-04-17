@@ -34,12 +34,14 @@ html {
   --link:         #2e3d96;  /* 9.3:1 on --bg ✓ */
   --link-hover:   var(--navy);
   --border:       #d6cec4;  /* warm tan border */
+  --border-input: #8a8379;  /* form field border — 3.4:1 on --bg ✓ (SC 1.4.11) */
   --step-bg:      #f5f0eb;
   --step-num-bg:  var(--navy);
   --step-num-txt: #ffffff;
   --card-bg:      #ffffff;
   --card-border:  #d6cec4;  /* warm tan */
   --focus-ring:   var(--red);
+  --red-text:     var(--red); /* use this for red text; overridden in dark mode */
 
   /* Spacing */
   --sp-xs:  0.375rem;
@@ -86,12 +88,14 @@ html {
     --link:        #b0bae8;  /* 8.1:1 on #050e3a ✓ */
     --link-hover:  #d0d8f8;
     --border:      #1c2c80;
+    --border-input: #5061a8;  /* form field border — 3.3:1 on dark --bg ✓ (SC 1.4.11) */
     --step-bg:     #0a1660;
     --step-num-bg: var(--blue-light);
     --step-num-txt: var(--navy);
     --card-bg:     #0a1660;
     --card-border: #1c2c80;
     --focus-ring:  #e85c7a;
+    --red-text:    #e85c7a;
     --shadow:      0 2px 8px rgba(0,0,0,0.4);
     --shadow-lg:   0 6px 24px rgba(0,0,0,0.5);
   }
@@ -108,12 +112,14 @@ html.dark {
   --link:        #b0bae8;
   --link-hover:  #d0d8f8;
   --border:      #1c2c80;
+  --border-input: #5061a8;
   --step-bg:     #0a1660;
   --step-num-bg: var(--blue-light);
   --step-num-txt: var(--navy);
   --card-bg:     #0a1660;
   --card-border: #1c2c80;
   --focus-ring:  #e85c7a;
+  --red-text:    #e85c7a;
   --shadow:      0 2px 8px rgba(0,0,0,0.4);
   --shadow-lg:   0 6px 24px rgba(0,0,0,0.5);
 }
@@ -181,11 +187,12 @@ a {
 }
 a:hover { color: var(--link-hover); }
 
-/* ── FOCUS STYLES (WCAG 2.4.7) ───────────────────────────── */
+/* ── FOCUS STYLES (WCAG 2.4.7, SC 2.4.11) ───────────────── */
 :focus-visible {
   outline: 3px solid var(--focus-ring);
   outline-offset: 3px;
   border-radius: var(--radius);
+  scroll-margin-top: 80px; /* prevent sticky header from obscuring focused element */
 }
 
 /* ── SKIP LINK ────────────────────────────────────────────── */
@@ -279,12 +286,12 @@ header {
 
 /* Mobile nav */
 .menu-btn {
-  display: none;
   padding: 0.5rem 0.9rem;
   font-size: var(--text-sm);
   font-weight: 700;
   cursor: pointer;
 }
+button.menu-btn { display: none; } /* hides on desktop; must beat .btn { display:inline-flex } */
 
 .mobile-nav {
   display: none;
@@ -310,8 +317,8 @@ header {
 .mobile-nav a:last-child { border-bottom: none; }
 
 @media (max-width: 1023px) {
-  .nav-links { display: none; }
-  .menu-btn  { display: block; }
+  .nav-links    { display: none; }
+  button.menu-btn { display: block; }
 }
 
 /* ── THEME PICKER ────────────────────────────────────────── */
@@ -705,8 +712,8 @@ blockquote cite {
 }
 
 blockquote cite a {
-  color: var(--red);
-  text-decoration-color: var(--red);
+  color: var(--red-text);
+  text-decoration-color: var(--red-text);
 }
 blockquote cite a:hover { color: var(--red-dark); }
 
@@ -1024,7 +1031,7 @@ blockquote cite a:hover { color: var(--red-dark); }
   font-family: var(--font);
   color: var(--text);
   background: var(--bg);
-  border: 2px solid var(--border);
+  border: 2px solid var(--border-input);
   border-radius: var(--radius);
   transition: border-color var(--transition), box-shadow var(--transition);
   line-height: var(--leading);
@@ -1050,6 +1057,12 @@ html.dark .form-group textarea:focus {
 }
 
 .form-group textarea { min-height: 160px; resize: vertical; }
+
+/* Error state — red border when aria-invalid (SC 3.3.1) */
+.form-group input[aria-invalid="true"],
+.form-group textarea[aria-invalid="true"] {
+  border-color: var(--red);
+}
 
 .honeypot { display: none; }
 
@@ -1177,7 +1190,7 @@ footer p {
   }
 
   /* Mobile menu button: comfortable touch target (WCAG 2.2 SC 2.5.8) */
-  .menu-btn {
+  button.menu-btn {
     min-height: 44px;
     display: inline-flex;
     align-items: center;

@@ -56,18 +56,15 @@
     }
 
     .az-nav a.has-terms {
+      background: var(--red);
       border-color: var(--red);
-      color: var(--red);
-    }
-    html.dark .az-nav a.has-terms,
-    @media (prefers-color-scheme: dark) {
-      .az-nav a.has-terms { color: #e85c7a; border-color: #e85c7a; }
+      color: #ffffff; /* white on red = 5.6:1 ✓ (SC 1.4.3) */
     }
 
     .az-nav a.has-terms:hover {
-      background: var(--red);
+      background: var(--red-dark);
+      border-color: var(--red-dark);
       color: #ffffff;
-      border-color: var(--red);
     }
 
     /* Letter section header */

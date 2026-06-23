@@ -350,6 +350,8 @@ button.menu-btn { display: none; } /* hides on desktop; must beat .btn { display
 .mobile-donate .donate-btn {
   display: block;
   text-align: center;
+  padding: 0.9rem 1rem; /* generous touch target */
+  font-size: var(--text-base);
 }
 
 @media (max-width: 1023px) {
@@ -1238,8 +1240,35 @@ footer p {
   .theme-btn { padding: 0.4rem 0.5rem; }
 }
 
+/* ── MOBILE HEADER: prevent overflow at small viewport widths ── */
+/*
+   On phones (≤767px) the header contains logo + Donate Now + theme picker + Menu.
+   That combination overflows on all screens narrower than ~430px, pushing the
+   Menu button off-screen to the right.
+
+   Fix: hide Donate Now from the header bar on mobile — it remains prominent
+   as a full-width red button inside the mobile nav menu (already wired up).
+   Hide the theme picker on very small phones and tighten side padding so that
+   logo + Menu button fit comfortably down to 320px.
+*/
+@media (max-width: 767px) {
+  .donate-wrap { display: none; }          /* Donate Now lives in mobile menu */
+  .nav-inner   { gap: var(--sp-sm); }      /* tighten logo → controls spacing */
+}
+
+@media (max-width: 390px) {
+  /* On the smallest phones (320 – 390 px) even the theme icon overflows.
+     Hide it from the header; reduce side padding to fit logo + Menu. */
+  .nav-inner {
+    padding-left:  var(--sp-sm);
+    padding-right: var(--sp-sm);
+  }
+  .theme-picker { display: none; }
+}
+
 /* Prevent horizontal scrolling at the document level */
-html { overflow-x: clip; }
+html { overflow-x: hidden; } /* fallback for browsers without clip support */
+html { overflow-x: clip; }   /* modern: no scroll container formed */
 
 /* ── PRINT ───────────────────────────────────────────────── */
 @media print {

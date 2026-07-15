@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DKRKZCNJ2F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-DKRKZCNJ2F');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="google-site-verification" content="lxORdac4sIjwtPF0n-1lK8MOv_CEZGg2ySDPDk97bP0" />
+  <title>Media | Public Powered Policy</title>
+  <meta name="description" content="Podcast interviews and articles featuring the founders of Public Powered Policy.">
+
+  <script>
+    (function(){
+      var m = localStorage.getItem('ppp-mode') || 'system';
+      if (m === 'dark')  document.documentElement.classList.add('dark');
+      if (m === 'light') document.documentElement.classList.add('light');
+    })();
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+  <link rel="stylesheet" href="../css/main.css">
+  <script src="../js/app.js" defer></script>
+  <!-- Fundrazr donate widget -->
+  <script>(function() { var d = document, fr = d.createElement('script'); fr.type = 'text/javascript'; fr.async = true; fr.src = 'https://static.fundrazr.com/widgets/loader.js'; var s = d.getElementsByTagName('script')[0]; s.parentNode.insertBefore(fr, s);})();</script>
+
+  <style>
+    /* ── MEDIA-PAGE SPECIFIC STYLES ─────────────────────────── */
+
+    .media-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-md);
+    }
+
+    .media-entry {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-left: 4px solid var(--red);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-lg);
+      box-shadow: var(--shadow);
+    }
+
+    .media-meta {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-sm);
+      flex-wrap: wrap;
+      margin-bottom: var(--sp-sm);
+    }
+
+    .media-outlet {
+      font-size: var(--text-sm);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+    }
+
+    .media-date {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 0.1rem 0.65rem;
+    }
+
+    .media-title {
+      font-size: var(--text-lg);
+      font-weight: 800;
+      margin-top: 0;
+      margin-bottom: var(--sp-sm);
+    }
+
+    .media-entry p {
+      max-width: 62ch;
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ── HEADER ─────────────────────────────────────────── -->
+  <header role="banner">
+    <div class="nav-inner">
+      <a class="site-logo" href="../" aria-label="Public Powered Policy — home">
+        Public Powered Policy
+      </a>
+      <nav class="nav-right" aria-label="Main navigation">
+        <ul class="nav-links" role="list">
+          <li><a href="../toolkit/">Submit a comment</a></li>
+          <li><a href="../process/">How It Works</a></li>
+          <li><a href="../glossary/">Glossary</a></li>
+          <li><a href="../media/" aria-current="page">Media</a></li>
+          <li><a href="../about/">About</a></li>
+          <li><a href="../contact/">Contact</a></li>
+        </ul>
+
+        <div class="donate-wrap">
+          <a class="fr-widget donate-btn" data-type="pay" href="https://fnd.us/e2jXj6/pay">Donate Now</a>
+        </div>
+
+        <div class="theme-picker">
+          <button id="theme-toggle" class="theme-btn"
+                  aria-haspopup="true" aria-expanded="false"
+                  aria-controls="theme-menu" aria-label="Change color theme">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 32 32" aria-hidden="true">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                    d="M16 5V2m0 21a7 7 0 1 0 0-14 7 7 0 0 0 0 14ZM8 8 6 6m2 18-2 2M24 8l2-2m-2 18 2 2M5 16H2m14 11v3m11-14h3"/>
+            </svg>
+            <span id="theme-current">system</span>
+          </button>
+          <ul id="theme-menu" class="theme-menu" role="menu" aria-label="Theme options">
+            <li role="none"><button role="menuitemradio" data-theme-mode="system"  aria-checked="true">System default</button></li>
+            <li role="none"><button role="menuitemradio" data-theme-mode="light"   aria-checked="false">Light</button></li>
+            <li role="none"><button role="menuitemradio" data-theme-mode="dark"    aria-checked="false">Dark</button></li>
+          </ul>
+        </div>
+        <button id="mobile-menu-btn" class="btn btn-outline btn-sm menu-btn"
+                aria-expanded="false" aria-controls="mobile-nav">Menu</button>
+      </nav>
+    </div>
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
+      <ul role="list">
+        <li><a href="../toolkit/">Submit a comment</a></li>
+        <li><a href="../process/">How It Works</a></li>
+        <li><a href="../glossary/">Glossary</a></li>
+        <li><a href="../media/">Media</a></li>
+        <li><a href="../about/">About</a></li>
+        <li><a href="../contact/">Contact</a></li>
+      </ul>
+      <div class="mobile-donate">
+        <a class="fr-widget donate-btn" data-type="pay" href="https://fnd.us/e2jXj6/pay">Donate Now</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ── MAIN ───────────────────────────────────────────── -->
+  <main id="main-content" tabindex="-1">
+
+    <div class="page-hero">
+      <div class="page-inner">
+        <h1>Media</h1>
+        <p class="lead">Podcast interviews and articles featuring the founders of Public Powered Policy.</p>
+      </div>
+    </div>
+
+    <div class="page-inner">
+
+      <ul class="media-list" role="list">
+
+        <li class="media-entry">
+          <div class="media-meta">
+            <span class="media-outlet">Justice Connection</span>
+            <span class="media-date">February 2026</span>
+          </div>
+          <h2 class="media-title">
+            <a href="https://justiceconnection.substack.com/p/the-government-is-making-decisions" target="_blank" rel="noopener">
+              The Government Is Making Decisions
+            </a>
+          </h2>
+          <p>
+            An op-ed by Rebecca B. Bond for Justice Connection, on federal agencies making
+            policy changes with limited opportunity for public comment, and the case for
+            stronger public participation before those decisions are finalized.
+          </p>
+        </li>
+
+        <li class="media-entry">
+          <div class="media-meta">
+            <span class="media-outlet">GovLove Podcast</span>
+            <span class="media-date">April 2026</span>
+          </div>
+          <h2 class="media-title">
+            <a href="https://elgl.org/podcast-making-digital-government-ada-accessible-with-rebecca-bond-and-kristin-stitcher/" target="_blank" rel="noopener">
+              Making Digital Government ADA Accessible
+            </a>
+          </h2>
+          <p>
+            An episode of the GovLove podcast in which Rebecca Bond and Kristin Stitcher
+            discuss digital accessibility requirements under the Americans with
+            Disabilities Act for state and local government websites and apps.
+          </p>
+        </li>
+
+        <li class="media-entry">
+          <div class="media-meta">
+            <span class="media-outlet">Big Voice Wednesday, hosted by Ronda Cress</span>
+            <span class="media-date">June 2026</span>
+          </div>
+          <h2 class="media-title">
+            <a href="https://youtu.be/QdJt2gTCrsk" target="_blank" rel="noopener">
+              The Little Girl with the Big Voice
+            </a>
+          </h2>
+          <p>
+            A podcast interview with Rebecca Bond and Kristin Stitcher for Ronda Cress's
+            Big Voice Wednesday series, on how members of the public can use their voice
+            to take part in government policymaking.
+          </p>
+        </li>
+
+      </ul>
+
+    </div><!-- /page-inner -->
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────────── -->
+  <footer role="contentinfo">
+    <p>&copy; 2025 Public Powered Policy</p>
+    <p>Public Powered Policy is a <a href="https://www.councilofnonprofits.org/running-nonprofit/administration-and-financial-management/fiscal-sponsorship-nonprofits" target="_blank" rel="noopener">fiscally sponsored</a> project of <a href="https://www.socialgoodfund.org/" target="_blank" rel="noopener">Social Good Fund</a>, a California nonprofit corporation and registered 501(c)(3) organization, Tax ID (EIN) 46-1323531.</p>
+  </footer>
+
+</body>
+</html>

@@ -37,6 +37,26 @@
   <!-- Skip link (WCAG 2.4.1) -->
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
+  <!-- ══════════════════════════════════════════════════════
+       TEMPORARY — Regularly Speaking launch announcement.
+       Remove this whole block (through the closing comment below)
+       once the launch period ends, approx. mid-November 2026.
+       Its one matching CSS rule block in css/main.css is marked
+       the same way and should be removed at the same time.
+       ══════════════════════════════════════════════════════ -->
+  <div class="launch-bar">
+    <a href="podcast/episode-1/">
+      <svg class="launch-bar-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <path stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M6 18v-2a10 10 0 0 1 20 0v2"/>
+        <rect x="3" y="17" width="7" height="10" rx="3" fill="currentColor"/>
+        <rect x="22" y="17" width="7" height="10" rx="3" fill="currentColor"/>
+      </svg>
+      <span><strong>Regularly Speaking</strong> is here — our new podcast.</span>
+      <span class="launch-bar-cta">Listen to Episode 1 <span aria-hidden="true">→</span></span>
+    </a>
+  </div>
+  <!-- END TEMPORARY — Regularly Speaking launch announcement -->
+
   <!-- ── HEADER ─────────────────────────────────────────── -->
   <header role="banner">
     <div class="nav-inner">
@@ -50,6 +70,7 @@
           <li><a href="toolkit/" aria-current="false">Commenting Toolkit</a></li>
           <li><a href="process/">How It Works</a></li>
           <li><a href="glossary/">Glossary</a></li>
+          <li><a href="podcast/">Podcast</a></li>
           <li><a href="media/">Media</a></li>
           <li><a href="about/">About</a></li>
           <li><a href="contact/">Contact</a></li>
@@ -101,6 +122,7 @@
         <li><a href="toolkit/">Commenting Toolkit</a></li>
         <li><a href="process/">How It Works</a></li>
         <li><a href="glossary/">Glossary</a></li>
+        <li><a href="podcast/">Podcast</a></li>
         <li><a href="media/">Media</a></li>
         <li><a href="about/">About</a></li>
         <li><a href="contact/">Contact</a></li>
@@ -146,6 +168,23 @@
     </section>
 
     <div class="page-inner">
+
+      <!-- Regularly Speaking podcast feature -->
+      <section class="podcast-feature" aria-labelledby="podcast-feature-heading">
+        <div class="podcast-feature-text">
+          <p class="eyebrow">New from Public Powered Policy</p>
+          <h2 id="podcast-feature-heading" class="mt-0">Regularly Speaking</h2>
+          <p><strong>Federal rules shape everyday life. You deserve a say in them.</strong></p>
+          <p>
+            Our new podcast breaks down federal rules in plain language — what's being
+            proposed, who might be affected, and how you can weigh in.
+          </p>
+          <a href="podcast/" class="btn btn-coral">
+            Listen to Regularly Speaking <span aria-hidden="true">→</span>
+          </a>
+        </div>
+        <img class="podcast-cover" src="img/regularly-speaking-cover.jpg" alt="Regularly Speaking, a podcast from Public Powered Policy." width="1200" height="1200" loading="lazy" decoding="async">
+      </section>
 
       <!-- Intro text -->
       <section aria-labelledby="intro-heading" style="max-width: 68ch; margin: 0 auto;">
@@ -232,7 +271,7 @@
 
   <!-- ── FOOTER ─────────────────────────────────────────── -->
   <footer role="contentinfo">
-    <p>&copy; 2025 Public Powered Policy</p>
+    <p>&copy; 2025–2026 Public Powered Policy</p>
     <p>Public Powered Policy is a <a href="https://www.councilofnonprofits.org/running-nonprofit/administration-and-financial-management/fiscal-sponsorship-nonprofits" target="_blank" rel="noopener">fiscally sponsored<span class="sr-only"> (opens in a new tab)</span></a> project of <a href="https://www.socialgoodfund.org/" target="_blank" rel="noopener">Social Good Fund<span class="sr-only"> (opens in a new tab)</span></a>, a California nonprofit corporation and registered 501(c)(3) organization, Tax ID (EIN) 46-1323531.</p>
   </footer>
 

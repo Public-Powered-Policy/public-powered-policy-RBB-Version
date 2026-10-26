@@ -74,6 +74,29 @@
       display: block;
     }
 
+    /* A bit of breathing room around Kristin's face — same shrink-inside-
+       a-frame approach as the podcast page's host photos. (An inset
+       box-shadow was tried first, but box-shadow doesn't paint over a
+       replaced element's own image content, so it had no visible
+       effect — this wrapper+flex approach is the one that actually
+       works.) */
+    .bio-photo-frame {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    @media (max-width: 600px) {
+      .bio-photo-frame { width: 120px; height: 120px; }
+    }
+    #bio-kristin .bio-photo {
+      width: 85%;
+      height: 85%;
+    }
+
     .bio-info {}
     .bio-info .bio-name { font-size: var(--text-xl); font-weight: 800; margin-top: 0; margin-bottom: 0.2rem; }
     .bio-info .bio-role { font-size: var(--text-sm); font-weight: 600; color: var(--text-muted); margin-bottom: var(--sp-md); }
@@ -96,6 +119,7 @@
           <li><a href="../toolkit/">Commenting Toolkit</a></li>
           <li><a href="../process/">How It Works</a></li>
           <li><a href="../glossary/">Glossary</a></li>
+          <li><a href="../podcast/">Podcast</a></li>
           <li><a href="../media/">Media</a></li>
           <li><a href="../about/" aria-current="page">About</a></li>
           <li><a href="../contact/">Contact</a></li>
@@ -130,6 +154,7 @@
         <li><a href="../toolkit/">Commenting Toolkit</a></li>
         <li><a href="../process/">How It Works</a></li>
         <li><a href="../glossary/">Glossary</a></li>
+        <li><a href="../podcast/">Podcast</a></li>
         <li><a href="../media/">Media</a></li>
         <li><a href="../about/">About</a></li>
         <li><a href="../contact/">Contact</a></li>
@@ -251,10 +276,9 @@
 
             <!-- Rebecca B. Bond -->
             <div class="bio-section" id="bio-rebecca">
-              <img src="../img/rebecca.jpg"
+              <img src="../img/rebecca-podcast.jpg"
                    alt="Headshot of Rebecca Bond"
                    class="bio-photo"
-                   style="object-position: center 35%;"
                    width="160" height="160"
                    loading="lazy"
                    decoding="async">
@@ -313,12 +337,15 @@
 
             <!-- Kristin Stitcher -->
             <div class="bio-section" id="bio-kristin">
-              <img src="../img/Kristin.jpg"
-                   alt="Headshot of Kristin Stitcher"
-                   class="bio-photo"
-                   width="160" height="160"
-                   loading="lazy"
-                   decoding="async">
+              <span class="bio-photo-frame">
+                <img src="../img/Kristin.jpg"
+                     alt="Headshot of Kristin Stitcher"
+                     class="bio-photo"
+                     style="object-position: center 35%;"
+                     width="160" height="160"
+                     loading="lazy"
+                     decoding="async">
+              </span>
               <div class="bio-info">
                 <h3 class="bio-name">Kristin Stitcher</h3>
                 <p class="bio-role">Director of Policy and Programs</p>
@@ -357,7 +384,7 @@
 
   <!-- ── FOOTER ─────────────────────────────────────────── -->
   <footer role="contentinfo">
-    <p>&copy; 2025 Public Powered Policy</p>
+    <p>&copy; 2025–2026 Public Powered Policy</p>
     <p>Public Powered Policy is a <a href="https://www.councilofnonprofits.org/running-nonprofit/administration-and-financial-management/fiscal-sponsorship-nonprofits" target="_blank" rel="noopener">fiscally sponsored<span class="sr-only"> (opens in a new tab)</span></a> project of <a href="https://www.socialgoodfund.org/" target="_blank" rel="noopener">Social Good Fund<span class="sr-only"> (opens in a new tab)</span></a>, a California nonprofit corporation and registered 501(c)(3) organization, Tax ID (EIN) 46-1323531.</p>
   </footer>
 

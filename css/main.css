@@ -1658,6 +1658,15 @@ html.dark .listen-pill { border-color: #5A70B5; }
   color: var(--text);
 }
 
+.podcast-follow-note {
+  margin-top: var(--sp-md);
+  color: var(--text);
+  font-size: var(--text-base);
+}
+.podcast-follow-note a {
+  font-weight: 700;
+}
+
 /* Consistent vertical rhythm between every content section on the page.
    Top padding only — each section creates exactly one gap above itself,
    so gaps never stack or double up between adjacent sections. */

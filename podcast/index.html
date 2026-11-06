@@ -34,6 +34,22 @@
   <style>
     /* ── PODCAST HOMEPAGE: Anton for the hero H1 only ──────── */
     @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+    /* Small "coming soon" card for the next unreleased episode */
+    .episode-upcoming-note {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-lg);
+      box-shadow: var(--shadow);
+    }
+    .episode-upcoming-note h2 {
+      margin-top: var(--sp-xs);
+      margin-bottom: var(--sp-xs);
+    }
+    .episode-upcoming-note p:last-child {
+      margin-bottom: 0;
+    }
   </style>
 </head>
 <body class="podcast-page">
@@ -190,6 +206,20 @@
               <a href="episode-1/">Show notes and links<span class="sr-only"> for Episode 1</span></a>
             </p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3b. Next episode preview — staging only. Episode 2 is not linked
+         anywhere yet; this is just a text preview. Once Episode 2 publishes
+         on November 10, 2026, remove this whole section (it's replaced by
+         Episode 2 becoming the new "Latest episode" above). -->
+    <section class="podcast-section podcast-section--tight" aria-labelledby="next-episode-h">
+      <div class="page-inner">
+        <div class="episode-upcoming-note">
+          <p class="eyebrow">Coming November 10</p>
+          <h2 id="next-episode-h">A New Tax Credit Will Help Pay for K&#8209;12 Scholarships.<br>How Should It Work?</h2>
+          <p>Episode 2 looks at the federal rules for a new tax credit that can help pay for K&#8209;12 scholarships.</p>
         </div>
       </div>
     </section>

@@ -89,6 +89,24 @@
       max-width: 62ch;
       margin-bottom: 0;
     }
+
+    /* Thumbnail for media entries that have a cover image (currently just one) */
+    .media-thumb {
+      display: block;
+      width: 100%;
+      max-width: 320px;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      margin-bottom: var(--sp-sm);
+    }
+
+    /* The link wrapping a thumbnail needs to be block-level so the image and
+       title stack as one clickable area, instead of behaving like inline text. */
+    .media-title a.media-title-link--with-thumb {
+      display: block;
+    }
   </style>
 </head>
 <body>
@@ -167,6 +185,25 @@
       <p>For press inquiries, contact <a href="mailto:media@publicpoweredpolicy.org">media@publicpoweredpolicy.org</a>.</p>
 
       <ul class="media-list" role="list">
+
+        <li class="media-entry">
+          <div class="media-meta">
+            <span class="media-outlet">Justice Matters with Glenn Kirschner</span>
+            <span class="media-date">November 1, 2026</span>
+          </div>
+          <h2 class="media-title">
+            <a class="media-title-link--with-thumb" href="https://www.youtube.com/watch?v=juy-he9qVek" target="_blank" rel="noopener">
+              <img class="media-thumb" src="../img/justice-matters-kirschner.jpg" alt="Justice Matters One on One title card featuring Rebecca Bond, Kristin Stitcher, and Glenn Kirschner." width="1280" height="720" loading="lazy">
+              Here&rsquo;s How YOU Can Help Craft America&rsquo;s Public Policy!
+              <span class="sr-only"> (opens in a new tab)</span>
+            </a>
+          </h2>
+          <p>
+            An interview with Rebecca Bond and Kristin Stitcher on Glenn Kirschner's Justice Matters,
+            on how members of the public can take part in federal rulemaking through the
+            notice-and-comment process.
+          </p>
+        </li>
 
         <li class="media-entry">
           <div class="media-meta">

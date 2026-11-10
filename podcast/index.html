@@ -34,22 +34,6 @@
   <style>
     /* ── PODCAST HOMEPAGE: Anton for the hero H1 only ──────── */
     @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
-
-    /* Small "coming soon" card for the next unreleased episode */
-    .episode-upcoming-note {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: var(--radius-lg);
-      padding: var(--sp-lg);
-      box-shadow: var(--shadow);
-    }
-    .episode-upcoming-note h2 {
-      margin-top: var(--sp-xs);
-      margin-bottom: var(--sp-xs);
-    }
-    .episode-upcoming-note p:last-child {
-      margin-bottom: 0;
-    }
   </style>
 </head>
 <body class="podcast-page">
@@ -178,48 +162,35 @@
     </section>
 
     <!-- 3. Latest episode ─────────────────────────────────── -->
-    <section id="latest-episode" class="podcast-section" aria-labelledby="episode-1-title">
+    <section id="latest-episode" class="podcast-section" aria-labelledby="episode-2-title">
       <div class="page-inner">
         <p class="eyebrow">Latest episode</p>
         <div class="episode-feature">
           <div class="episode-badge" aria-hidden="true">
             <span class="episode-badge-label">EPISODE</span>
-            <span class="episode-badge-num">01</span>
+            <span class="episode-badge-num">02</span>
           </div>
           <div class="episode-feature-body">
-            <p class="episode-feature-meta">Episode 1 · October 27, 2026 · 24 minutes</p>
-            <h2 id="episode-1-title"><a href="episode-1/">Scam Ads Are Everywhere. What Should Platforms Have to Do About Them?</a></h2>
+            <p class="episode-feature-meta">Episode 2 · November 10, 2026 · 27 minutes</p>
+            <h2 id="episode-2-title"><a href="episode-2/">A New Tax Credit Will Help Pay for K&#8209;12 Scholarships. How Should It Work?</a></h2>
             <p>
-              In our first episode, we look at an FTC request for public input on what responsibility
-              online platforms should have when scammers use their advertising tools to impersonate
-              banks, businesses, and government agencies. We explain what the FTC is considering, who
-              could be affected, and how you can weigh in before comments close on November 30, 2026.
+              In our second episode, we look at how the federal government is writing the rules
+              for a new tax credit that can help pay for K&#8209;12 scholarships. We explain what the
+              rules could cover, including how families prove their income, how tutors get paid,
+              and what families learn before choosing a school, and how you can weigh in before
+              comments close on December 1, 2026.
             </p>
 
             <p class="episode-feature-actions">
-              <a class="btn btn-secondary btn-sm" href="episode-1/">
-                View Episode 1 <span aria-hidden="true">→</span>
+              <a class="btn btn-secondary btn-sm" href="episode-2/">
+                View Episode 2 <span aria-hidden="true">→</span>
               </a>
             </p>
             <p class="episode-links">
-              <a href="episode-1/#transcript">Read the full transcript<span class="sr-only"> of Episode 1</span></a>
-              <a href="episode-1/">Show notes and links<span class="sr-only"> for Episode 1</span></a>
+              <a href="episode-2/#transcript">Read the full transcript<span class="sr-only"> of Episode 2</span></a>
+              <a href="episode-2/">Show notes and links<span class="sr-only"> for Episode 2</span></a>
             </p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 3b. Next episode preview — staging only. Episode 2 is not linked
-         anywhere yet; this is just a text preview. Once Episode 2 publishes
-         on November 10, 2026, remove this whole section (it's replaced by
-         Episode 2 becoming the new "Latest episode" above). -->
-    <section class="podcast-section podcast-section--tight" aria-labelledby="next-episode-h">
-      <div class="page-inner">
-        <div class="episode-upcoming-note">
-          <p class="eyebrow">Coming November 10</p>
-          <h2 id="next-episode-h">A New Tax Credit Will Help Pay for K&#8209;12 Scholarships.<br>How Should It Work?</h2>
-          <p>Episode 2 looks at the federal rules for a new tax credit that can help pay for K&#8209;12 scholarships.</p>
         </div>
       </div>
     </section>
@@ -318,6 +289,16 @@
              (e.g. /podcast/episode-2/, built the same way episode-1/ is). Put the newest
              episode first in the list. -->
         <ol class="episode-list" role="list">
+          <li class="episode-row">
+            <span class="episode-row-num" aria-hidden="true">02</span>
+            <div>
+              <h3>Episode 2: A New Tax Credit Will Help Pay for K&#8209;12 Scholarships. How Should It Work?</h3>
+              <p class="episode-row-meta">November 10, 2026 · 27 minutes</p>
+            </div>
+            <a class="btn btn-secondary btn-sm" href="episode-2/">
+              Listen<span class="sr-only"> to Episode 2</span>
+            </a>
+          </li>
           <li class="episode-row">
             <span class="episode-row-num" aria-hidden="true">01</span>
             <div>
